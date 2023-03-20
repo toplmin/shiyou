@@ -26,6 +26,6 @@ export default {
 
 .content{
   padding-top:50px;
-  border:1px solid yellow;
+
 }
 </style>
