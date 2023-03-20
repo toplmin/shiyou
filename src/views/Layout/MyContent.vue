@@ -13,7 +13,7 @@ export default {
 <style lang="less" scoped>
 .wrapper{
   margin-top:20px;
-  height:800px;
-  background: pink;
+  height:100%;
+  //background: pink;
 }
 </style>

@@ -9,9 +9,8 @@
         router
       >
         <el-sub-menu index="/">
-          <template #title>
+          <template #title>第一模块
             <el-icon><location /></el-icon>
-            <span>第一模块</span>
           </template>
           <el-menu-item-group title="Group One">
             <el-menu-item index="/item1">item one</el-menu-item>
@@ -25,25 +24,27 @@
             <el-menu-item index="/item4_1">item one</el-menu-item>
           </el-sub-menu>
         </el-sub-menu>
-        <el-menu-item index="/camera">
+
+        <el-menu-item index="/camera">相机模块
           <el-icon><icon-menu /></el-icon>
-          <span>相机模块</span>
         </el-menu-item>
-        <el-menu-item index="3" disabled>
+
+        <el-menu-item index="3" >第三模块
           <el-icon><document /></el-icon>
-          <span>第三模块</span>
         </el-menu-item>
-        <el-menu-item index="4">
+
+        <el-menu-item index="4">第四模块
           <el-icon><setting /></el-icon>
-          <span>第四模块</span>
         </el-menu-item>
       </el-menu>
 </template>
 
-<script>
-export default {
+<script setup>
+    import Camera from '../../components/camera'
+    function clickCamera(){
+      alert("点击相机")
+    }
 
-}
 </script>
 
 <style>
