@@ -48,5 +48,8 @@
 </script>
 
 <style>
-
+.el-menu-vertical-demo{
+  position: fixed;
+  width: 100%;
+}
 </style>
