@@ -4,14 +4,19 @@ import One from '@/views/One';
 import FirstItem from '@/views/One/FirstItem.vue';
 import SecondItem from '@/views/One/SecondItem.vue';
 import Camera from '../components/camera.vue'
-import Ex_camera from '../components/ex_camera.vue'
+import Login from '../views/Login/login.vue'
 const routes = [
   {
     path: '/',
+    name:'登录页面',
+    component: Login,
+  },
+  {
+    path: '/home',
     component: Layout,
     children: [
       {
-        path: '/',
+        path: '/home',
         name: '第一模块',
         component: One,
         children: [
