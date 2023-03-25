@@ -1,60 +1,44 @@
 <template>
-  <div class="common-layout">
-
-    <el-container>
-      <el-aside width="40%">
-        <el-row >
-          <el-col>
-<!--            <div id="divPlugin" width="500px" height="300px"></div>-->
-            <video class="video" ref="video" width="960" height="680"></video>
-            <img ref="photo" style="display: none;">
-          </el-col>
-        </el-row>
-
-        <el-row class="level1">
-          <el-button class="btn openVideo" type="primary" @click="startCamera" >打开摄像头</el-button>
-          <el-button class="btn btn1 closeVideo" type="primary" @click="stopCamera">关闭摄像头</el-button>
-        </el-row>
-
-        <el-row >
-          <el-button class="btn takePhoto" type="primary" @click="takePhoto">拍照</el-button>
-          <el-button class="btn btn1 savePhoto" type="primary" >保存</el-button>
-        </el-row>
-      </el-aside>
-
-
-      <el-main>
-<!--        <canvas ref="canvas" width="300" height="300" ></canvas>-->
-        <el-row>
-          <el-col :span="10"><img class="img1 " v-bind:src="img1_src"/></el-col>
-          <el-col :span="10"><img class="img1 " v-bind:src="img2_src"/></el-col>
-        </el-row>
-        <el-row style="margin-top: 10%">
-          <el-col :span="10"><img class="img1 " v-bind:src="img3_src"/></el-col>
-          <el-col :span="10"><img class="img1 " v-bind:src="img4_src"/></el-col>
-        </el-row>
-
-      </el-main>
-
-    </el-container>
+  <div class="camera-container">
+    <div class="videoLeft">
+      <video class="video" ref="video" ></video>
+      <div class="video-button">
+        <div><el-button class="btn " type="primary" @click="startCamera" >打开摄像头</el-button></div>
+        <div><el-button class="btn " type="primary" @click="stopCamera">关闭摄像头</el-button></div>
+        <div><el-button class="btn " type="primary" @click="takePhoto">拍照</el-button></div>
+        <div><el-button class="btn " type="primary" >保存</el-button></div>
+      </div>
+    </div>
+    <div class="videoRight">
+      <img class="img1 " :src="img1_src"/>
+      <img class="img1 " :src="img2_src"/>
+      <img class="img1 " v-bind:src="img3_src"/>
+      <img class="img1 " v-bind:src="img4_src"/>
+    </div>
   </div>
 </template>
 <script>
 // import {reactive} from 'vue'
 // let mediaStream=reactive({})
-
+// window.addEventListener('resize', function(event){
+//   var width = window.innerWidth;
+//   var height = window.innerHeight;
+//   // 根据需要调整元素的大小
+// });
 export default {
   data() {
     return {
       mediaStream: null,
-      img1_src:"",
-      img2_src:"",
-      img3_src:"",
-      img4_src:"",
+      img1_src:require('../assets/img/moren.webp'),
+      img2_src:require('../assets/img/moren.webp'),
+      img3_src:require('../assets/img/moren.webp'),
+      img4_src:require('../assets/img/moren.webp'),
       current_index:0
     };
   },
+
   methods: {
+
     async startCamera() {
       // this.openCamera()
       try {
@@ -216,32 +200,57 @@ export default {
 
 
 </script>
-
-
 <style>
-  .video{
-    margin-top: 20px;
-    margin-left: 20px;
-    border-style: solid;
-    border-width: 2px;
-    border-color: gray;
-  }
-  .btn {
-    margin-left: 20%;
-    margin-top: 50px;
-    width: 28%;
-    height: 40px;
-  }
-  .img1{
-    width: 560px;
-    height: 460px;
-    border-style: solid;
-    border-width: 2px;
-    border-color: gray;
-    margin-left: 9%;
-  }
-  .level1{
-    margin-top: 70px;
-  }
+.camera-container{
+  width: 100%;
+  height: 100%;
+  /*background-color: orange;*/
+  display: flex;
 
+}
+.videoLeft{
+  width: 40%;
+  margin-top: 3%;
+  /*display: flex;*/
+  /*flex-direction: column;*/
+  /*justify-content: center*/
+;
+}
+.video{
+  width: 100%;
+  height: 61%;
+}
+.video-button{
+  display: flex;
+  padding: 8%;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.video-button div{
+  width: 50%;
+}
+.btn{
+  margin: 5%;
+  width: 90%;
+  height: 40px;
+}
+.video{
+  margin-top: 20px;
+  margin-left: 20px;
+  border: 2px solid grey;
+  width: 90%;
+}
+.videoRight{
+  width: 60%;
+  display: flex;
+  flex-wrap: wrap;
+  /*background-color: red;*/
+  align-items:center;
+  justify-content: space-evenly;
+}
+.videoRight img{
+  /*margin: 10px ;*/
+  width: 45%;
+  height: 34%;
+}
 </style>
