@@ -6,7 +6,6 @@
         <el-input class="input" type="password" v-model="password" placeholder="请输入密码" :prefix-icon="Key">密码</el-input>
         <el-button class="btn" type="primary" size="default" @click="clickLogin">登录</el-button>
       </div>
-
     </div>
   </div>
 </template>
@@ -26,7 +25,7 @@ const clickLogin = async()=>{
     });
     console.log(response.data)
     if(response.code === 200){
-      await router.push('/home')
+       await router.push('/home')
     }else if(response.code === 500){
       console.log("code = 500")
     }
