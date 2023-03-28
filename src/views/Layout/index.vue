@@ -5,13 +5,10 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import MyMenu from '@/views/Layout/MyMenu.vue'
 import MyContent from './MyContent.vue';
 
-export default {
-  components:{ MyMenu, MyContent}
-}
 </script>
 
 <style lang="less" scoped>

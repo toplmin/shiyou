@@ -28,13 +28,13 @@
       </div>
       <div class="video_ipt">
         <div>
-          <el-input class="ipt" v-model="input" placeholder="请输入人员id" />
+          <el-input class="ipt" v-model="id" placeholder="请输入人员id" />
         </div>
         <div>
-          <el-input class="ipt" v-model="input" placeholder="请输入人员姓名" />
+          <el-input class="ipt" v-model="name" placeholder="请输入人员姓名" />
         </div>
         <div>
-          <el-button class="sava_btn" type="primary">保存</el-button>
+          <el-button class="sava_btn"  type="primary" @click="save">保存</el-button>
         </div>
       </div>
 
@@ -50,6 +50,8 @@
 
 <script setup>
 import {ref} from 'vue'
+//========================================打开、关闭、拍照功能=======================================================
+
 //定义图片实例
 let img1_src = ref(require('../assets/img/moren.webp'));
 let img2_src = ref(require('../assets/img/moren.webp'))
@@ -97,9 +99,22 @@ function takePhoto() {
   clickCount.value = clickCount.value + 1;
   clickCount.value = clickCount.value % 4;
 }
+//========================================输入人员id和姓名进行“保存”功能=======================================================
+const id = ref("")
+const name = ref("")
+function save(){
+  alert("保存成功")
+}
+//========================================将照片“提交”到算法模块功能=======================================================
+
+
+//========================================人脸特征查询 功能=======================================================
+
+
+//========================================从本地 导入图片 功能=======================================================
 
 </script>
-<style>
+<style scoped>
 .camera-container {
   width: 100%;
   height: 100%;
@@ -151,7 +166,7 @@ function takePhoto() {
 /*  width: 50%;*/
 /*}*/
 .ipt{
-  margin-top: 8%;
+  margin-top: 1%;
   width: 100%;
   height: 40px;
 }

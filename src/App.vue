@@ -3,12 +3,9 @@
   <router-view/>
   <login></login>
 </template>
-<script>
+<script setup>
 
 
-export default {
-
-}
 </script>
 <style>
 

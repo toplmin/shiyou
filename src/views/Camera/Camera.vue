@@ -1,8 +1,9 @@
 <template>
-  <h2>第一模块下的子项2</h2>
+  <camera></camera>
 </template>
 
 <script setup>
+import Camera from "@/components/camera";
 
 </script>
 

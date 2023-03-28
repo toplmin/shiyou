@@ -1,10 +1,13 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import Layout from '@/views/Layout';
+import Login from '../views/Login/login.vue'
 import One from '@/views/One';
 import FirstItem from '@/views/One/FirstItem.vue';
 import SecondItem from '@/views/One/SecondItem.vue';
-import Camera from '../components/camera.vue'
-import Login from '../views/Login/login.vue'
+import Camera from '@/views/Camera'
+import showCamera from '@/views/Camera/Camera.vue'
+import camCalibrate from '@/views/Camera/CamCalibrate.vue'
+import personTrace from '@/views/Trace/PersonTrace.vue'
 const routes = [
   {
     path: '/',
@@ -33,7 +36,21 @@ const routes = [
       {
         path: '/camera',
         name: '相机模块',
-        component: Camera
+        component: Camera,
+        children: [
+          {
+            path: '/showCamera',
+            component: showCamera,
+          },
+          {
+            path: '/camCalibrate',
+            component: camCalibrate,
+          }
+        ]
+      },
+      {
+        path:'/personTrace',
+        component: personTrace,
       }
     ]
   },
