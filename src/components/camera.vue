@@ -17,9 +17,27 @@
           <el-button class="btn " type="primary" @click="takePhoto">拍照</el-button>
         </div>
         <div>
-          <el-button class="btn " type="primary">保存</el-button>
+          <el-button class="btn " type="primary">提交</el-button>
+        </div>
+        <div>
+          <el-button class="btn " type="primary">人脸特征查询</el-button>
+        </div>
+        <div>
+          <el-button class="btn " type="primary">导入图片</el-button>
         </div>
       </div>
+      <div class="video_ipt">
+        <div>
+          <el-input class="ipt" v-model="input" placeholder="请输入人员id" />
+        </div>
+        <div>
+          <el-input class="ipt" v-model="input" placeholder="请输入人员姓名" />
+        </div>
+        <div>
+          <el-button class="sava_btn" type="primary">保存</el-button>
+        </div>
+      </div>
+
     </div>
     <div class="videoRight">
       <img class="img1 " :src="img1_src"/>
@@ -78,34 +96,6 @@ function takePhoto() {
   }
   clickCount.value = clickCount.value + 1;
   clickCount.value = clickCount.value % 4;
-
-
-
-  // console.log("@1",this.mediaStream)
-  // if(this.mediaStream)
-  // {
-  //   const videoTracker = this.mediaStream.getVideoTracks()[0];
-  //   console.log("@2",this.mediaStream)
-  //   let imageCapture = new ImageCapture(videoTracker);
-  //   imageCapture.takePhoto().then((blob)=>{
-  //     if(this.current_index == 0)
-  //       this.img1_src = URL.createObjectURL(blob)
-  //     else if(this.current_index == 1)
-  //       this.img2_src = URL.createObjectURL(blob)
-  //     else if(this.current_index == 2)
-  //       this.img3_src = URL.createObjectURL(blob)
-  //     else
-  //
-  //       this.img4_src = URL.createObjectURL(blob)
-  //     this.current_index = (this.current_index + 1) % 4
-  //   })
-  //   // imageCapture.takePhoto().then((blob)=>{this.img2_src = URL.createObjectURL(blob)})
-  // }
-
-  // canvas.getContext('2d').drawImage(video,0, 0, 300, 300);
-  // const photoDataUrl = canvas.toDataURL('image/png');
-  // photo.src = photoDataUrl;
-  // photo.style.display = 'block';
 }
 
 </script>
@@ -118,7 +108,6 @@ function takePhoto() {
 
 .playerBorder {
   margin-top: 3%;
-  margin-bottom: 10%;
   margin-left: 20px;
   width: 95%;
   height: 46%;
@@ -129,7 +118,6 @@ function takePhoto() {
   /*visibility:hidden;*/
   width: 100%;
   height: 100%;
-
 }
 
 .videoLeft {
@@ -137,13 +125,9 @@ function takePhoto() {
   margin-top: 3%;;
 }
 
-/*.video{*/
-/*  width: 100%;*/
-/*  height: 61%;*/
-/*}*/
 .video-button {
   display: flex;
-  padding: 8%;
+  padding: 3%;
   justify-content: space-around;
   flex-wrap: wrap;
 }
@@ -153,17 +137,28 @@ function takePhoto() {
 }
 
 .btn {
-  margin: 5%;
+  /*margin: 3%;*/
   width: 90%;
   height: 40px;
 }
-
-/*.video{*/
-/*  margin-top: 20px;*/
-/*  margin-left: 20px;*/
-/*  border: 2px solid grey;*/
-/*  width: 90%;*/
+.video_ipt{
+  /*display: flex;*/
+  padding: 3%;
+  /*justify-content: space-around;*/
+  /*flex-wrap: wrap;*/
+}
+/*.video-ipt div {*/
+/*  width: 50%;*/
 /*}*/
+.ipt{
+  margin-top: 8%;
+  width: 100%;
+  height: 40px;
+}
+.sava_btn{
+  width: 100%;
+  margin-top: 5%;
+}
 .videoRight {
   width: 60%;
   display: flex;
