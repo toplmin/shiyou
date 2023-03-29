@@ -40,7 +40,7 @@ export default{
   /* position: fixed; */
   position: relative;
   width: 100%;
-  
+
 }
 .el-menu-vertical-demo > el-menu-item__title{
   position: absolute;
