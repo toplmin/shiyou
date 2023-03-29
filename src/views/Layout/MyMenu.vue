@@ -48,11 +48,9 @@ export default{
   left:0;
   right:0;
 }
-.el-menu-vertical-demo > .el-menu-item{
-  margin-left:160px;
+.el-menu-vertical-demo > .el-menu-item,.el-sub-menu{
+  margin-left:15%;
 }
-.el-menu-vertical-demo > .el-sub-menu{
-  margin-left:160px;
-}
+
 
 </style>
