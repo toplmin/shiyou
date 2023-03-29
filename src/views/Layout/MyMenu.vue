@@ -9,6 +9,18 @@
         router
       >
         <el-sub-menu index="/">
+          <template #title>相机模块
+            <el-icon><location /></el-icon>
+          </template>
+          <el-menu-item index="/showCamera">相机展示</el-menu-item>
+          <el-menu-item index="/camCalibrate">相机标定</el-menu-item>
+        </el-sub-menu>
+
+        <el-menu-item index="personTrace" >人员轨迹
+          <el-icon><location /></el-icon>
+        </el-menu-item>
+
+        <el-sub-menu index="1">
           <template #title>第一模块
             <el-icon><location /></el-icon>
           </template>
@@ -25,13 +37,7 @@
           </el-sub-menu>
         </el-sub-menu>
 
-        <el-menu-item index="/camera">相机模块
-          <el-icon><icon-menu /></el-icon>
-        </el-menu-item>
 
-        <el-menu-item index="3" >第三模块
-          <el-icon><document /></el-icon>
-        </el-menu-item>
 
         <el-menu-item index="4">第四模块
           <el-icon><setting /></el-icon>
@@ -40,14 +46,10 @@
 </template>
 
 <script setup>
-    import Camera from '../../components/camera'
-    function clickCamera(){
-      alert("点击相机")
-    }
 
 </script>
 
-<style>
+<style scoped>
 .el-menu-vertical-demo{
   position: fixed;
   width: 100%;

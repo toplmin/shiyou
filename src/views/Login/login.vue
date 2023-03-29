@@ -32,9 +32,11 @@ const clickLogin = async()=>{
   }catch (error){
     console.error(error)
   }
+  await router.push('/home')
 }
+
 </script>
-<style>
+<style scoped>
 .container{
   height: 100%;
   width: 100%;

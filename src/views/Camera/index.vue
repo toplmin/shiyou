@@ -1,9 +1,8 @@
 <template>
-  <h2>第一模块下的子项2</h2>
+  <router-view></router-view>
 </template>
 
 <script setup>
-
 </script>
 
 <style>
