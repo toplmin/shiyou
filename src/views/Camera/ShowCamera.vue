@@ -149,6 +149,7 @@ function save(){
 
 .video-button div {
   width: 50%;
+  margin-bottom:10px;
 }
 
 .btn {
