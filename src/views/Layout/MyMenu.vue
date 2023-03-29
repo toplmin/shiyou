@@ -37,7 +37,22 @@ export default{
 
 <style scoped>
 .el-menu-vertical-demo{
-  position: fixed;
+  /* position: fixed; */
+  position: relative;
   width: 100%;
+  
 }
+.el-menu-vertical-demo > el-menu-item__title{
+  position: absolute;
+  top:0;
+  left:0;
+  right:0;
+}
+.el-menu-vertical-demo > .el-menu-item{
+  margin-left:160px;
+}
+.el-menu-vertical-demo > .el-sub-menu{
+  margin-left:160px;
+}
+
 </style>
