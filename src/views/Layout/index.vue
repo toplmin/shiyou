@@ -1,6 +1,6 @@
 <template>
   <div class="all">
-      <MyMenu/>
+    <MyMenu/>
     <MyContent/>
   </div>
 </template>

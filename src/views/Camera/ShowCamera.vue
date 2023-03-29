@@ -1,9 +1,9 @@
 <template>
   <div class="camera-container">
     <div class="videoLeft">
-      <!--      播放器-->
+      <!-- 播放器-->
       <div class="playerBorder">
-        <!--        <div id="player" class="jsmpeg" data-url="ws://127.0.0.1:3000" ></div>-->
+        <!-- <div id="player" class="jsmpeg" data-url="ws://127.0.0.1:3000" ></div>-->
         <canvas id="play_canvas" v-if="showCanvas" ref="videoCanvas" class="video_canvas"></canvas>
       </div>
       <div class="video-button">
@@ -53,10 +53,10 @@ import {ref} from 'vue'
 //========================================打开、关闭、拍照功能=======================================================
 
 //定义图片实例
-let img1_src = ref(require('../assets/img/moren.webp'));
-let img2_src = ref(require('../assets/img/moren.webp'))
-let img3_src = ref(require('../assets/img/moren.webp'))
-let img4_src = ref(require('../assets/img/moren.webp'))
+let img1_src = ref(require('@/assets/img/moren.webp'));
+let img2_src = ref(require('@/assets/img/moren.webp'))
+let img3_src = ref(require('@/assets/img/moren.webp'))
+let img4_src = ref(require('@/assets/img/moren.webp'))
 //定义拍照点击次数
 let clickCount = ref("0")
 //拉流 定义播放器player  画布videoCanvas
