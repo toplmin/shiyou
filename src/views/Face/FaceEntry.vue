@@ -1,49 +1,60 @@
 <template>
     <div class="camera-container">
-      <div class="videoLeft">
-        <!-- 播放器-->
-        <div class="playerBorder">
-          <!-- <div id="player" class="jsmpeg" data-url="ws://127.0.0.1:3000" ></div>-->
-          <canvas id="play_canvas" v-if="showCanvas" ref="videoCanvas" class="video_canvas"></canvas>
+      <!-- 最上方按钮 -->
+      <div class="video-top">
+        <div class="videoButton">
+          <el-button class="btn" type="primary" @click="startCamera">打开摄像头</el-button>
+          <el-button class="btn" type="primary" @click="takePhoto">拍照</el-button>
+          <el-button class="btn" type="primary">导入图片</el-button>
+          <el-button class="btn" type="primary">人脸特征抽取</el-button>
+          <el-button class="btn" type="primary" @click="stopCamera">关闭摄像头</el-button>
         </div>
-        <div class="video-button">
-          <div>
-            <el-button class="btn " type="primary" @click="startCamera">打开摄像头</el-button>
-          </div>
-          <div>
-            <el-button class="btn " type="primary" @click="stopCamera">关闭摄像头</el-button>
-          </div>
-          <div>
-            <el-button class="btn " type="primary" @click="takePhoto">拍照</el-button>
-          </div>
-          <div>
-            <el-button class="btn " type="primary">提交</el-button>
-          </div>
-          <div>
-            <el-button class="btn " type="primary">人脸特征查询</el-button>
-          </div>
-          <div>
-            <el-button class="btn " type="primary">导入图片</el-button>
-          </div>
-        </div>
-        <div class="video_ipt">
-          <div>
-            <el-input class="ipt" v-model="id" placeholder="请输入人员id" />
-          </div>
-          <div>
-            <el-input class="ipt" v-model="name" placeholder="请输入人员姓名" />
-          </div>
-          <div>
-            <el-button class="sava_btn"  type="primary" @click="save">保存</el-button>
-          </div>
-        </div>
-  
       </div>
-      <div class="videoRight">
-        <img class="img1 " :src="img1_src"/>
-        <img class="img1 " :src="img2_src"/>
-        <img class="img1 " :src="img3_src"/>
-        <img class="img1 " :src="img4_src"/>
+      <!-- 下方的视频框 -->
+      <div class="video-bottom">
+        <div class="video-bottom-left">
+          <!-- 1.播放器 -->
+          <span>摄像头</span>
+          <div class="playerBorder">
+            <canvas id="play_canvas" v-if="showCanvas" ref="videoCanvas" class="video-canvas"></canvas>
+          </div>
+          <!-- 2.人脸照片 -->
+          <div class="videoImg">
+            <div>
+              <span>人脸正面</span>
+              <img class="img1 " :src="img1_src"/>
+            </div>
+            <div>
+              <span>人脸左15度</span>
+              <img class="img1 " :src="img2_src"/>
+            </div>
+            <div>
+              <span>人脸右15度</span>
+              <img class="img1 " :src="img3_src"/>
+            </div>
+          </div>
+          <!-- 3.特征抽取框 -->
+          <div class="featureImg">
+            <div>
+              <span>特征抽取</span>
+              <img class="img1 " :src="img4_src"/>
+            </div>
+            <div>
+              <span>特征抽取</span>
+              <img class="img1 " :src="img5_src"/>
+            </div>
+            <div>
+              <span>特征抽取</span>
+              <img class="img1 " :src="img6_src"/>
+            </div>
+          </div>
+        </div>
+        <div class="video-bottom-right">
+          <!-- 人员姓名输入框 -->
+          <el-input class="ipt" v-model="id" placeholder="请输入人员id" />
+          <el-input class="ipt" v-model="name" placeholder="请输入人员姓名" />
+          <el-button class="sava_btn"  type="primary" @click="save">保存</el-button>
+        </div>
       </div>
     </div>
   </template>
@@ -57,6 +68,8 @@
   let img2_src = ref(require('@/assets/img/moren.webp'))
   let img3_src = ref(require('@/assets/img/moren.webp'))
   let img4_src = ref(require('@/assets/img/moren.webp'))
+  let img5_src = ref(require('@/assets/img/moren.webp'))
+  let img6_src = ref(require('@/assets/img/moren.webp'))
   //定义拍照点击次数
   let clickCount = ref("0")
   //拉流 定义播放器player  画布videoCanvas
@@ -96,8 +109,14 @@
     else if (clickCount.value == 3){
       img4_src.value = data//因为ref定义的变量是实例  好像是得通过.value修改。。。
     }
+    else if (clickCount.value == 4){
+      img5_src.value = data//因为ref定义的变量是实例  好像是得通过.value修改。。。
+    }
+    else if (clickCount.value == 5){
+      img6_src.value = data//因为ref定义的变量是实例  好像是得通过.value修改。。。
+    }
     clickCount.value = clickCount.value + 1;
-    clickCount.value = clickCount.value % 4;
+    clickCount.value = clickCount.value % 6;
   }
   //========================================输入人员id和姓名进行“保存”功能=======================================================
   const id = ref("")
@@ -114,79 +133,123 @@
   //========================================从本地 导入图片 功能=======================================================
   
   </script>
+
   <style scoped>
   .camera-container {
     width: 100%;
     height: 100%;
     display: flex;
+    flex-direction: column;
+  }
+  .video-top{
+    display: flex;
+    width:100%;
+    margin:10px;
+    border-bottom:2px solid rgb(242, 238, 238);
+  }
+  .video-bottom{
+    display: flex;
+    width: 94%;
+    border:2px solid rgb(242, 238, 238);
+    margin-left:3%;
+    margin-right:3%;
+    margin-top:10px;
+  }
+  .videoButton{
+    display: flex;
+    width:100%;
+    height:30%;
+    padding-left:2%;
+    margin-bottom:2px;
+  }
+  .btn{
+    margin-right:8%;
+    background-color: #36a3f7;
+    width:30%;
   }
   
+  .video-bottom-left {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    height:100%;
+    margin-top: 2%;
+    margin-left:3%;
+  }
+  .video-bottom-right {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    height:100%;
+    margin-top: 25%;
+    margin-left: 3%;
+  }
+  .video-bottom-left > span{
+    width: 20%;
+    margin-left: 45%;
+    margin-bottom:10px;
+  }
   .playerBorder {
-    margin-top: 1%;
-    margin-left: 10px;
     width: 50%;
-    height: 50%;
-    border: 2px solid grey;
+    height: 60%;
+    border: 1px solid #1b1c1d;
+    margin-left:25%;
   }
   
-  .video_canvas {
-    /*visibility:hidden;*/
+  .video-canvas {
     width: 100%;
     height: 100%;
   }
-  
-  .videoLeft {
-    width: 40%;
-    margin-top: 3%;;
-  }
-  
-  .video-button {
+  .videoImg{
     display: flex;
-    padding: 3%;
+    width: 96%;
+    height:55%;
+    border:2px solid rgb(242, 238, 238);
+    margin-top:3%;
+    margin-left:2%;
+    align-items: center;
     justify-content: space-around;
-    flex-wrap: wrap;
   }
-  
-  .video-button div {
-    width: 50%;
-    margin-bottom:10px;
+  .videoImg > div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size:16px;
+    margin:5px;
   }
-  
-  .btn {
-    /*margin: 3%;*/
-    width: 90%;
-    height: 40px;
+
+  .featureImg{
+    display: flex;
+    width: 96%;
+    height:55%;
+    border:2px solid rgb(242, 238, 238);
+    margin-top:3%;
+    margin-left:2%;
+    margin-bottom:3%;
+    align-items: center;
+    justify-content: space-around;
   }
-  .video_ipt{
-    /*display: flex;*/
-    padding: 3%;
-    /*justify-content: space-around;*/
-    /*flex-wrap: wrap;*/
+  .featureImg > div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size:16px;
+    margin:5px;
   }
-  /*.video-ipt div {*/
-  /*  width: 50%;*/
-  /*}*/
+  .img1{
+    width: 45%;
+    height: 65%;
+    border:1px solid #1b1c1d;
+    margin-top:5px;
+  }
   .ipt{
-    margin-top: 1%;
     width: 100%;
-    height: 40px;
+    margin-bottom:10%;
+    border:1px solid #36a3f7;
   }
   .sava_btn{
     width: 100%;
-    margin-top: 5%;
+    background-color: #36a3f7;
   }
-  .videoRight {
-    width: 60%;
-    display: flex;
-    flex-wrap: wrap;
-    /*background-color: red;*/
-    align-items: center;
-    justify-content: space-evenly;
-  }
-  
-  .videoRight img {
-    width: 45%;
-    height: 34%;
-  }
-  </style>
-  
+
+</style>

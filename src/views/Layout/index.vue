@@ -37,7 +37,7 @@ export default{
   left:0;
   top:0;
   bottom:0;
-  background:#112f50 ;
+  background:#112f50;
 }
 .content{
   padding-left:151px;

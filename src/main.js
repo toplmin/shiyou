@@ -12,8 +12,5 @@ const app = createApp(App);
 for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
     app.component(key, component)
 }
-// 全局引入dayjs
-import dayjs from 'dayjs'
-Vue.prototype.$dayjs = dayjs;
 
 app.use(router).mount('#app')

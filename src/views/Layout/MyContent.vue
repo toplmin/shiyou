@@ -1,20 +1,21 @@
 <template>
-  <!-- 1.头部条 -->
-  <div class="header">
-    <!-- 折叠菜单栏 -->
-    <div class="icon">
-      <el-icon v-if="isClose" @click="change"><Expand /></el-icon>
-      <el-icon v-else @click="change"><Fold /></el-icon>
+  <div class="all">
+    <!-- 1.头部条 -->
+    <div class="header">
+      <!-- 折叠菜单栏 -->
+      <div class="icon">
+        <el-icon v-if="isClose" @click="change"><Expand /></el-icon>
+        <el-icon v-else @click="change"><Fold /></el-icon>
+      </div>
+      <!-- 显示时间和退出系统 -->
+      <div class="right">
+        <div class="time">2023-03-30</div>
+      </div>
     </div>
-    <!-- 显示时间和退出系统 -->
-    <div class="right">
-      <div class="time">2023-03-30</div>
+    <!-- 2.内容界面 -->
+    <div class="wrapper">
+      <router-view></router-view>
     </div>
-  </div>
-
-  <!-- 2.内容界面 -->
-  <div class="wrapper">
-    <router-view></router-view>
   </div>
 </template>
 
@@ -38,12 +39,19 @@ export default{
 </script>
 
 <style lang="less" scoped>
+.all{
+  display: flex;
+  flex-direction: column;
+}
 .header{
-  height: 50px;
+  height: 20%;
   line-height:50px;
-  background:#1e78bf;
+  background:#0d4f82;
   color:#fff;
   display:flex;
+}
+.wrapper{
+  height:80%;
 }
 .icon{
   font-size:24px;
@@ -59,7 +67,5 @@ export default{
     font-size:14px;
   }
 }
-.wrapper{
-  margin:10px;
-}
+
 </style>
