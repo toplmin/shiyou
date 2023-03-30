@@ -192,8 +192,9 @@
   .playerBorder {
     width: 50%;
     height: 60%;
-    border: 1px solid #1b1c1d;
     margin-left:25%;
+    border: 1px solid #1b1c1d;
+    background-color: rgb(242, 238, 238);
   }
   
   .video-canvas {
@@ -209,6 +210,7 @@
     margin-left:2%;
     align-items: center;
     justify-content: space-around;
+    background-color: rgb(242, 238, 238);
   }
   .videoImg > div{
     display: flex;
@@ -228,6 +230,7 @@
     margin-bottom:3%;
     align-items: center;
     justify-content: space-around;
+    background-color: rgb(242, 238, 238);
   }
   .featureImg > div{
     display: flex;
