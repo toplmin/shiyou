@@ -1,57 +1,100 @@
 <template>
-  <el-menu
-        mode="horizontal"
-        active-text-color="#ffd04b"
-        background-color="#545c64"
-        class="el-menu-vertical-demo"
-        default-active="2"
-        text-color="#fff"
-        router
-      >
-        <el-sub-menu index="/">
-          <template #title>相机模块
-            <el-icon><location /></el-icon>
-          </template>
-          <el-menu-item index="/showCamera">相机展示</el-menu-item>
-          <el-menu-item index="/camCalibrate">相机标定</el-menu-item>
-        </el-sub-menu>
-
-        <el-menu-item index="personTrace" >人员轨迹
-          <el-icon><location /></el-icon>
-        </el-menu-item>
-
-        <el-sub-menu index="1">
-          <template #title>第一模块
-            <el-icon><location /></el-icon>
-          </template>
-          <el-menu-item-group title="Group One">
-            <el-menu-item index="/item1">item one</el-menu-item>
-            <el-menu-item index="/item2">item two</el-menu-item>
-          </el-menu-item-group>
-          <el-menu-item-group title="Group Two">
-            <el-menu-item index="/item3">item three</el-menu-item>
-          </el-menu-item-group>
-          <el-sub-menu index="/item4">
-            <template #title>item four</template>
-            <el-menu-item index="/item4_1">item one</el-menu-item>
-          </el-sub-menu>
-        </el-sub-menu>
-
-
-
-        <el-menu-item index="4">第四模块
-          <el-icon><setting /></el-icon>
-        </el-menu-item>
-      </el-menu>
+  <el-menu 
+      :default-active="route.path" 
+      :collapse="isClose"  
+      background-color="#112f50" 
+      text-color="#fff"
+      active-text-color="#ffd04b" 
+      router
+  >
+    <el-menu-item>
+      <template #title><span>人员定位跟踪系统</span></template>
+    </el-menu-item>
+    <el-menu-item index="/faceEntry">
+      <!-- 图标 -->
+      <el-icon><User /></el-icon>
+      <template #title>
+        <span>人脸特征录入</span>
+      </template>
+    </el-menu-item>
+    <el-menu-item index="/faceSearch">
+      <el-icon><Search /></el-icon>
+      <template #title>
+        <span>人脸特征查询</span>
+      </template>
+    </el-menu-item>
+    <el-menu-item index="/boneEntry">
+      <el-icon><Pointer /></el-icon>
+      <template #title>
+        <span>骨骼特征录入</span>
+      </template>
+    </el-menu-item>
+    <el-menu-item index="/boneSearch">
+      <el-icon><Coin /></el-icon>
+      <template #title>
+        <span>骨骼特征查询</span>
+      </template>
+    </el-menu-item>
+    <el-menu-item index="/gaitEntry">
+      <el-icon><Rank /></el-icon>
+      <template #title>
+        <span>步态特征录入</span>
+      </template>
+    </el-menu-item>
+    <el-menu-item index="/personTrack">
+      <el-icon><MapLocation /></el-icon>
+      <template #title>
+        <span>人员轨迹展示</span>
+      </template>
+    </el-menu-item>
+    <el-menu-item index="/videoSource">
+      <el-icon><VideoCamera /></el-icon>
+      <template #title>
+        <span>视频源配置</span>
+      </template>
+    </el-menu-item>
+    <el-menu-item index="/camCalibration">
+      <el-icon><Camera /></el-icon>
+      <template #title>
+        <span>相机标定</span>
+      </template>
+    </el-menu-item>
+    <el-menu-item index="/subscription">
+      <el-icon><SetUp /></el-icon>
+      <template #title>
+        <span>订阅配置</span>
+      </template>
+    </el-menu-item>
+  </el-menu>
 </template>
 
-<script setup>
+<script>
+import { ref } from 'vue'
+import {useRoute} from 'vue-router'
+
+export default{
+  props:['isClose'],
+  setup(){
+    // 定义是否折叠菜单栏的变量
+    // const isCollapse = ref(false)
+    // 使用路由,实现菜单栏的路由跳转（https栏路径就可以根据点击的菜单项来变化）
+    const route = useRoute()
+    return {
+      // isCollapse,
+      route
+    }
+  }
+}
 
 </script>
 
 <style scoped>
-.el-menu-vertical-demo{
-  position: fixed;
-  width: 100%;
+.el-menu-vertical-demo:not(.el-menu--collapse){
+  width: 200px;
+  min-height: 400px;
 }
+.el-menu{
+  border-right:none;
+}
+
 </style>

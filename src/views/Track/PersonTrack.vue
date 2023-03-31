@@ -51,6 +51,7 @@ const handleFileUpload = (event) => {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top:2%;
   /*background-color: cornflowerblue;*/
 }
 .video_top{
@@ -68,6 +69,7 @@ const handleFileUpload = (event) => {
   flex-wrap: wrap;
   width: 95%;
   margin-left: 3%;
+  margin-top:3%;
   justify-content: center;
 }
 .btn{
