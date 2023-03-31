@@ -83,7 +83,7 @@ function takePhoto() {
 
 </script>
 
-<style>
+<style scoped>
 .playerBorder{
     width: 80%;
     height: 68%;
