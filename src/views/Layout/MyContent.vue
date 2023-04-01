@@ -42,16 +42,17 @@ export default{
 .all{
   display: flex;
   flex-direction: column;
+  height: 100%;
 }
 .header{
-  height: 20%;
+  height: 4%;
   line-height:50px;
   background:#0d4f82;
   color:#fff;
   display:flex;
 }
 .wrapper{
-  height:80%;
+  height:96%;
 }
 .icon{
   font-size:24px;
