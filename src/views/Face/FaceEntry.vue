@@ -16,7 +16,7 @@
           <!-- 1.播放器 -->
           <span>摄像头</span>
           <div class="playerBorder">
-            <canvas id="play_canvas" v-if="showCanvas" ref="videoCanvas" class="video-canvas"></canvas>
+            <canvas id="play_canvas" v-show="showCanvas" ref="videoCanvas" class="video-canvas"></canvas>
           </div>
           <!-- 2.人脸照片 -->
           <div class="videoImg">
@@ -59,7 +59,7 @@
     </div>
   </template>
   
-  <script setup>
+  <script setup >
   import {ref} from 'vue'
   //========================================打开、关闭、拍照功能=======================================================
   
@@ -77,7 +77,7 @@
   const url = 'ws://127.0.0.1:3000';
   let player = ref(null);
   //showCanvas 通过v-if来控制canves的显示和隐藏
-  const showCanvas = ref(false);
+  const showCanvas = ref(true);
   //打开摄像头
   function startCamera() {
     showCanvas.value = true;
@@ -140,6 +140,7 @@
     height: 100%;
     display: flex;
     flex-direction: column;
+    position: fixed;
   }
   .video-top{
     display: flex;
@@ -150,22 +151,25 @@
   .video-bottom{
     display: flex;
     width: 94%;
+    height: 90%;
     border:2px solid rgb(242, 238, 238);
-    margin-left:3%;
-    margin-right:3%;
-    margin-top:10px;
+    /*background-color: pink;*/
+    /*margin-left:3%;*/
+    /*margin-right:3%;*/
+    /*margin-top:10px;*/
   }
   .videoButton{
     display: flex;
     width:100%;
     height:30%;
     padding-left:2%;
-    margin-bottom:2px;
+    /*margin-bottom:2px;*/
+    /*background-color: red;*/
   }
   .btn{
-    margin-right:8%;
+    /*margin-right:8%;*/
     background-color: #36a3f7;
-    width:30%;
+    width:18%;
   }
   
   .video-bottom-left {
@@ -173,16 +177,18 @@
     flex-direction: column;
     width: 70%;
     height:100%;
-    margin-top: 2%;
+    /*margin-top: 2%;*/
     margin-left:3%;
+    /*background-color: red;*/
   }
   .video-bottom-right {
     display: flex;
     flex-direction: column;
     width: 20%;
-    height:100%;
-    margin-top: 25%;
+    /*height:50%;*/
+    margin-top: 24%;
     margin-left: 3%;
+    /*background-color: red;*/
   }
   .video-bottom-left > span{
     width: 20%;
@@ -190,27 +196,31 @@
     margin-bottom:10px;
   }
   .playerBorder {
-    width: 50%;
-    height: 60%;
+    width: 55%;
+    height: 100%;
     margin-left:25%;
     border: 1px solid #1b1c1d;
     background-color: rgb(242, 238, 238);
+    /*background-color: red;*/
   }
   
   .video-canvas {
     width: 100%;
     height: 100%;
+    /*background-color: #36a3f7;*/
   }
   .videoImg{
     display: flex;
     width: 96%;
-    height:55%;
+    height:45%;
     border:2px solid rgb(242, 238, 238);
-    margin-top:3%;
+    margin-top:1%;
     margin-left:2%;
     align-items: center;
     justify-content: space-around;
     background-color: rgb(242, 238, 238);
+    /*background-color: blue;*/
+
   }
   .videoImg > div{
     display: flex;
@@ -218,12 +228,13 @@
     align-items: center;
     font-size:16px;
     margin:5px;
+    /*background-color: #36a3f7;*/
   }
 
   .featureImg{
     display: flex;
     width: 96%;
-    height:55%;
+    height:45%;
     border:2px solid rgb(242, 238, 238);
     margin-top:3%;
     margin-left:2%;
@@ -238,10 +249,11 @@
     align-items: center;
     font-size:16px;
     margin:5px;
+    /*background-color: forestgreen;*/
   }
   .img1{
     width: 45%;
-    height: 65%;
+    height: 100%;
     border:1px solid #1b1c1d;
     margin-top:5px;
   }
