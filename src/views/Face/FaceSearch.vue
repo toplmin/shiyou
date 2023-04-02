@@ -2,7 +2,7 @@
     <div class="container">
         <!-- 1.人员姓名查询框 -->
         <div class="searchBox">
-            <span>人员姓名</span>
+            <span>人员姓名：</span>
             <el-select v-model="value" class="selectBox" placeholder="请输入人员姓名">
                 <el-option
                     v-for="item in options"
@@ -46,15 +46,15 @@
         <div class="faceShow">
             <div class="videoImg">
                 <div>
-                    <span>人脸正面</span>
+                    <span class="span">人脸正面</span>
                     <img class="img1 " :src="img1_src"/>
                 </div>
                 <div>
-                    <span>人脸左15度</span>
+                    <span class="span">人脸左15度</span>
                     <img class="img1 " :src="img2_src"/>
                 </div>
                 <div>
-                    <span>人脸右15度</span>
+                    <span class="span">人脸右15度</span>
                     <img class="img1 " :src="img3_src"/>
                 </div>
             </div>
@@ -63,15 +63,15 @@
         <div class="featureShow">
             <div class="featureImg">
                 <div>
-                    <span>特征提取</span>
+                    <span class="span">特征提取</span>
                     <img class="img1 " :src="img4_src"/>
                 </div>
                 <div>
-                    <span>特征提取</span>
+                    <span class="span">特征提取</span>
                     <img class="img1 " :src="img5_src"/>
                 </div>
                 <div>
-                    <span>特征提取</span>
+                    <span class="span">特征提取</span>
                     <img class="img1 " :src="img6_src"/>
                 </div>
             </div>
@@ -149,39 +149,32 @@ export default{
 .container{
     width: 100%;
     height: 100%;
-    display: flex;
-    flex-direction: column;
+    position: fixed;
 }
 .searchBox{
     display: flex;
-    width:89%;
+    width:90%;
+    height: 5%;
     margin-top:1%;
-    margin-left:5%;
-    padding:5px;
-    border: 1px solid rgb(242, 238, 238);
+    margin-left:1%;
     background-color: rgb(242, 238, 238);
+    align-items: center;
+  justify-content: center;
 }
-.searchBox > span{
-    margin-left:3%;
-    margin-top:1%;
-    font-size:16px;
-}
+
 .selectBox{
-    margin-left:5%;
+    width: 35%;
 }
 .btn1{
-    margin-left:38%;
-    margin-right:3%;
-}
-.btn2{
-    margin-right:5%;
+    margin-left:1%;
 }
 .searchResult{
     display: flex;
     flex-direction: column;
     width:90%;
+    height: 30%;
     margin-top:1%;
-    margin-left:5%;
+    margin-left:1%;
     border: 1px solid rgb(242, 238, 238);
     background-color: rgb(242, 238, 238);
 }
@@ -209,7 +202,8 @@ export default{
 .faceShow,.featureShow{
     display: flex;
     width:90%;
-    margin-left:5%;
+    height: 25%;
+    margin-left:1%;
     margin-top:1%;
     border: 1px solid rgb(242, 238, 238);
     background-color: rgb(242, 238, 238);
@@ -217,23 +211,23 @@ export default{
 .videoImg,.featureImg{
     display: flex;
     width: 90%;
-    height:55%;
+    height:100%;
     border:2px solid rgb(242, 238, 238);
     margin-left:4%;
     align-items: center;
     justify-content: space-around;
   }
   .videoImg > div,.featureImg > div{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     font-size:16px;
     margin:3px;
   }
+  .span{
+    margin-left:25%;
 
+  }
   .img1{
-    width: 45%;
-    height: 65%;
+    width: 80%;
+    height: 80%;
     border:1px solid #1b1c1d;
     margin-top:3px;
   }

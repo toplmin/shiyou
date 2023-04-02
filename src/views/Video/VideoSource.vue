@@ -47,47 +47,42 @@
 
 <script>
 import VideoSetContent from '@/components/VideoSetContent.vue'
+import {Search} from "@element-plus/icons-vue";
 export default{
-    props:{ VideoSetContent}
+  components: {Search},
+  props:{ VideoSetContent}
 }
 </script>
 
 <style scoped>
 .video{
-    display: flex;
     width: 100%;
     height: 100%;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    flex-direction: column;
+  position: fixed;
 }
-.first,
-.second,
-.third{
+.first,.second,.third{
     width: 100%;
-    height:100%;
+    height:31%;
     display:flex;
-    /* margin-top:1%; */
-    margin-left:3%;
+    margin-left:1%;
 }
-
-.one,
-.two,
-.three,
-.four,
-.five,
-.six,
-.seven,
-.eight,
-.nine
-{
+  .one,
+  .two,
+  .three,
+  .four,
+  .five,
+  .six,
+  .seven,
+  .eight,
+  .nine
+  {
     display:flex;
     flex-direction: column;
     background-color:  rgb(242, 238, 238);
     margin-top:1%;
-    height:46%;
-    width:30%;
-    margin-right:3%;
+    height:95%;
+    width:29.5%;
+    margin-left:1%;
 }
 .title{
     text-align: center;

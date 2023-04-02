@@ -43,35 +43,35 @@
 
 <style scoped>
 .boneEn{
-    display: flex;
-    flex-direction: column;
     width:100%;
     height:100%;
+  position: fixed;
 }
 .top{
     display:flex;
     width:80%;
-    margin-left:30%;
+    /*margin-left:20%;*/
     margin-top:2%;
+    height: 2%;
+    justify-content: center;
+    align-items: center;
 }
 .ipt{
     width:40%;
-    margin-left:2%;
+    margin-left:1%;
 }
 .save_btn{
     margin-left:1%;
 }
 .middle{
     display:flex;
-    margin-top:3%;
-    width:88%;
-    height:120%;
-    margin-left:6%;
+    margin-top:2%;
+    width:86%;
+    height:55%;
+    margin-left:5%;
 }
 .left,
 .right{
-    display:flex;
-    flex-direction: column;
     width:45%;
     height:100%;
 }
@@ -81,7 +81,7 @@
 .playerBorder,
 .playerBorder2{
     width: 100%;
-    height: 80%;
+    height: 100%;
     border: 1px solid #1b1c1d;
     background-color: rgb(242, 238, 238);
 }
@@ -93,15 +93,17 @@
 .buttonRight{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
     margin-top:3%;
+    align-items: center;
+    justify-content: center;
 }
 .btn{
-    width:30%;
+    width:32%;
 }
 .bottom{
-    width:88%;
-    margin-top:3%;
-    margin-left:6%;
+    width:86%;
+    height: 20%;
+    margin-top:4%;
+    margin-left:5%;
 }
 </style>
