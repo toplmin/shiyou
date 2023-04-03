@@ -44,20 +44,19 @@ const handleFileUpload = (event) => {
   width: 100%;
   height: 100%;
   /*background-color: #24ff80;*/
+  position: fixed;
 }
 .div1{
   width: 100%;
-  height: 90%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top:2%;
+  height: 85%;
+  /*margin: 2% 2%;*/
   /*background-color: cornflowerblue;*/
 }
 .video_top{
   width: 90%;
-  height: 85%;
+  height: 95%;
   border: 2px solid grey;
+  margin: 2% 2% 0% 2%;
   /*background-color: pink;*/
 }
 .video{
@@ -65,16 +64,13 @@ const handleFileUpload = (event) => {
   height: 100%;
 }
 .btn_bottom{
-  display: flex;
-  flex-wrap: wrap;
   width: 95%;
-  margin-left: 3%;
-  margin-top:3%;
-  justify-content: center;
+  height: 15%;
+  /*margin: 1% 30%;*/
 }
 .btn{
   width: 32%;
   height: 40px;
-
+  margin: 0% 30%;
 }
 </style>

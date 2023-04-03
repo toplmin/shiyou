@@ -84,20 +84,25 @@ function takePhoto() {
 </script>
 
 <style scoped>
+.videoContent{
+  width: 100%;
+  height: 100%;
+}
 .playerBorder{
     width: 80%;
-    height: 68%;
-    margin-left:8%;
+    height: 65%;
+    margin-left:9%;
     border:3px solid #717274;
 }
 .video_canvas{
     width: 100%;
     height: 100%;
+    border: 2px solid grey;
 }
 .bg ,
 .source{
     display:flex;
-    height:20%;
+    /*height:20%;*/
     text-align: center;
     margin-top:1%;
 }
@@ -108,14 +113,14 @@ function takePhoto() {
     margin-left:8%;
 }
 .upload-bg{
-    margin-left: 5%;
+    margin-left: 4%;
 }
 .btn{
     width: 80%;
-    margin-left: 3%;
+    margin-left: 5%;
 }
 .upload-video{
-    margin-left: 8%;
+    margin-left: 5.5%;
 }
 .upload-video > el-upload{
     width: 100%;

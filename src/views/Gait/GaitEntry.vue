@@ -14,20 +14,21 @@
                 </div>
                 <!-- 人员姓名 -->
                 <div class="person">
+                    <span>人员姓名：</span>
                     <el-input class="ipt" v-model="name" placeholder="请输入人员姓名" />
                     <el-button class="save_btn"  type="primary" @click="save">录入</el-button>
                 </div>
             </div>
             <div class="right">
+              <!-- 视频框 -->
+              <div class="playerBorder2">
+                <canvas ref="videoCanvas" class="video-canvas"></canvas>
+              </div>
                 <!-- 按钮 -->
                 <div class="buttonRight">
                     <el-button class="btn" type="primary">导入背景图片</el-button>
-                    <el-button class="btn1" type="primary">录制步态</el-button>
-                    <el-button class="btn1" type="primary">导入视频</el-button>
-                </div>
-                <!-- 视频框 -->
-                <div class="playerBorder2">
-                    <canvas ref="videoCanvas" class="video-canvas"></canvas>
+                    <el-button class="btn" type="primary">录制步态</el-button>
+                    <el-button class="btn" type="primary">导入视频</el-button>
                 </div>
             </div>
         </div>
@@ -43,30 +44,29 @@
 
 <style scoped>
 .gait{
-    display: flex;
     width: 100%;
     height: 100%;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    flex-direction: column;
+    position: fixed;
 }
-.top,
-.bottom{
+.top{
     display: flex;
     width:80%;
-    margin-top:4%;
-    margin-left:10%;
-    margin-right:10%;
+    height: 60%;
+    margin-top:2%;
+    margin-left:8%;
 }
 .bottom{
+    width:80%;
+    height: 20%;
+    margin-left:8%;
     border:2px solid rgb(242, 238, 238);
 }
 
 .left,
 .right{
-    display: flex;
-    flex-direction: column;
-    width:50%;
+    width:60%;
+    height: 100%;
+    /*background-color: #36a3f7;*/
 }
 .right{
     margin-left:10%;
@@ -79,32 +79,35 @@
     background-color: rgb(242, 238, 238);
 }
 .playerBorder2{
-    margin-top:3%;
+    /*margin-top:3%;*/
 }
 .video-canvas {
     width: 100%;
     height: 100%;
 }
-
+.btn{
+  width: 20%;
+}
 .buttonLeft,
 .buttonRight{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
 }
-.buttonLeft{
+.buttonLeft,.buttonRight{
     margin-top:3%;
 }
 .person{
     display: flex;
     margin-top:3%;
+    justify-content: center;
+    align-items: center;
 }
 .ipt{
-    width:50%;
-    margin-left:7%;
+    width:80%;
 }
 .save_btn{
-    margin-left:23%;
+    margin-left:2%;
 }
 
 </style>

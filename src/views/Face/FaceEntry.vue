@@ -61,6 +61,7 @@
   
   <script setup >
   import {ref} from 'vue'
+  import {Discount} from "@element-plus/icons-vue";
   //========================================打开、关闭、拍照功能=======================================================
   
   //定义图片实例
@@ -230,7 +231,10 @@
     margin:5px;
     /*background-color: #36a3f7;*/
   }
-
+  .videoImg > div > span{
+    display: block;
+    margin-left: 50%;
+  }
   .featureImg{
     display: flex;
     width: 96%;
