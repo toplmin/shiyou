@@ -2,13 +2,20 @@
   <div class="container">
     <div class="box1">
       <div class="box2">
+        <h2 class="title">人员定位跟踪系统</h2>
+      </div>
+      <div class="box3">
         <el-input class="input" v-model="username" placeholder="请输入账号" :prefix-icon="User">账号</el-input>
         <el-input class="input" type="password" v-model="password" placeholder="请输入密码" :prefix-icon="Key">密码</el-input>
-        <el-button class="btn" type="primary" size="default" @click="clickLogin">登录</el-button>
+        <div class="box4">
+          <el-button class="btn1" type="primary" size="default" @click="reset">重 置</el-button>
+          <el-button class="btn2" type="primary" size="default" @click="clickLogin">登 录</el-button>
+        </div>
       </div>
     </div>
   </div>
 </template>
+
 <script setup >
 import { ref } from 'vue'
 import {User,Key } from '@element-plus/icons-vue'
@@ -34,38 +41,63 @@ const clickLogin = async()=>{
   }
   await router.push('/home')
 }
+const reset = async()=>{
+  this.$refs.loginForm.resetFields()
+}
 
 </script>
+
 <style scoped>
 .container{
   height: 100%;
   width: 100%;
   display: flex;
-  /*background-color: greenyellow;*/
+  /* background-color: greenyellow; */
   justify-content: center;
   align-items: center;
 
 }
 .box1{
-  height: 50%;
-  width: 50%;
+  height: 40%;
+  width: 40%;
   /*background-color: pink;*/
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   box-shadow: 0px 0px 20px 10px grey;
   border-radius: 20px;
 }
 .box2{
+  height:10%;
+}
+.title {
+    color: rgb(0, 136, 255);
+    font-family: 'Times New Roman', Times, serif;
+    text-shadow: 1px 1px 2px rgb(0, 136, 255);
+  }
+.box3{
   height: 50%;
+  margin-top:5%;
 }
 .input{
+  height: 15%;
+  width:80%;
   margin-top: 5%;
-  height: 12%;
+  margin-left:10%;
 }
-.btn{
-  margin-top: 10%;
-  align-items: center;
+.box4{
+  height:50%;
+}
+.btn1{
+  margin-top: 5%;
+  /* align-items: center; */
+  margin-left:28%;
+}
+
+.btn2{
+  margin-top:5%;
+  margin-left:10%;
 }
 
 

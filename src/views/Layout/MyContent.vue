@@ -9,7 +9,7 @@
       </div>
       <!-- 显示时间和退出系统 -->
       <div class="right">
-        <div class="time">2023-03-30</div>
+        <div class="time">2023-04-06</div>
       </div>
     </div>
     <!-- 2.内容界面 -->

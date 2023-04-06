@@ -59,6 +59,7 @@
     width:80%;
     height: 20%;
     margin-left:8%;
+    margin-top:2%;
     border:2px solid rgb(242, 238, 238);
 }
 
@@ -102,6 +103,9 @@
     margin-top:3%;
     justify-content: center;
     align-items: center;
+}
+.person > span{
+    width:20%;
 }
 .ipt{
     width:80%;

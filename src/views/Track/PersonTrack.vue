@@ -1,15 +1,20 @@
 <template>
   <div class="Container">
-    <div class="div1">
-      <div class="video_top">
-        <video ref="videoPlayer" class="video"  autoplay controls></video>
-      </div>
+    <div class="buttonTop">
+      <h2>视频源</h2>
+      <el-select v-model="value" class="selectBox" placeholder="请选择视频源">
+        <el-option
+            v-for="item in options"
+            :key="item.value"
+            :label="item.label"
+            :value="item.value"
+        />
+      </el-select>
+      <button class="btn" @click="openVideo">打开</button>
+      <button class="btn" @click="closeVideo">关闭</button>
     </div>
-
-    <div class="btn_bottom">
-      <button class="btn" @click="openVideo">打开视频文件</button>
-<!--      <el-button class="btn" @click="playVideo">播放</el-button>-->
-<!--      <el-button class="btn" @click="stopVideo">暂停</el-button>-->
+    <div class="videoBottom">
+      <video ref="videoPlayer" class="video"  autoplay controls></video>
     </div>
   </div>
 </template>
@@ -37,40 +42,53 @@ const handleFileUpload = (event) => {
 // function stopVideo(){
 //   videoPlayer.value.pause();
 // }
+
+const value = ref('')
+const options = [
+            {
+                value: 'Option1',
+                label: 'Option1',
+            },
+            {
+                value: 'Option2',
+                label: 'Option2',
+            },
+            {
+                value: 'Option3',
+                label: 'Option3',
+            },
+        ]
 </script>
 
 <style scoped>
 .Container{
   width: 100%;
   height: 100%;
-  /*background-color: #24ff80;*/
   position: fixed;
 }
-.div1{
-  width: 100%;
-  height: 85%;
-  /*margin: 2% 2%;*/
-  /*background-color: cornflowerblue;*/
+.buttonTop{
+  width:70%;
+  height:10%;
+  margin-top:3%;
+  margin-left:10%;
+  margin-right:10%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
-.video_top{
-  width: 90%;
-  height: 95%;
-  border: 2px solid grey;
-  margin: 2% 2% 0% 2%;
-  /*background-color: pink;*/
+.videoBottom{
+  width:100%;
+  height:80%;
 }
+
 .video{
-  width: 100%;
-  height: 100%;
-}
-.btn_bottom{
-  width: 95%;
-  height: 15%;
-  /*margin: 1% 30%;*/
+  width: 70%;
+  height: 80%;
+  margin-left:10%;
+  margin-top:1%;
 }
 .btn{
-  width: 32%;
-  height: 40px;
-  margin: 0% 30%;
+  width: 12%;
+  height:35px;
 }
 </style>
