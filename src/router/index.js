@@ -22,6 +22,8 @@ import videoSource from '@/views/Video/VideoSource.vue'
 import camCalibration from '@/views/Camera/CamCalibration.vue'
 // 订阅配置
 import subscription from '@/views/Sub/Subscription.vue'
+// 模型配置
+import moduleConfig from '@/views/Module/ModuleConfig.vue'
 
 const routes = [
   {
@@ -77,6 +79,11 @@ const routes = [
         path:'/subscription',
         name:'订阅配置',
         component: subscription,
+      },
+      {
+        path:'/moduleConfig',
+        name:'模型配置',
+        component: moduleConfig,
       },
     ]
   },

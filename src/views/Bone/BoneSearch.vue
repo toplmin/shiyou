@@ -3,7 +3,7 @@
       <div class="topPart">
         <span >人员姓名</span>
         <el-input class="input" v-model='perName' placeholder="请输入人员姓名"></el-input>
-        <el-button class="btn">删除</el-button>
+        <el-button class="btn" type="danger">删除</el-button>
       </div>
 
       <div class="midPart">
@@ -32,16 +32,17 @@ const perName = ref('')
 }
 /*上面部分*/
 .topPart{
-  width: 100%;
+  width: 80%;
   height: 5%;
   display: flex;
-  margin:0% 15% 0% ;
+  margin: 0.5% 7%;
   align-items: center;
+  background-color: rgb(242, 238, 238);
 }
 
 .input{
   width: 50%;
-  height: 50%;
+  height: 30px;
   margin-left: 10px;
 }
 .btn{
@@ -60,9 +61,9 @@ const perName = ref('')
 .imgInfo{
   width: 80%;
   height: 90%;
-  /*background-color: greenyellow;*/
   border: 2px solid grey;
   margin: 0.5% 7%;
+  background-color: rgb(242, 238, 238);
 }
 /*下面部分*/
 .bottomPart{
@@ -77,9 +78,8 @@ const perName = ref('')
 .characterInfo{
   width: 80%;
   height: 75%;
-  /*background-color: darkkhaki;*/
   border: 2px solid grey;
   margin: 0.5% 7%;
-
+  background-color: rgb(242, 238, 238);
 }
 </style>

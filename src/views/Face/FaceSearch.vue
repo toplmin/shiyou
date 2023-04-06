@@ -24,12 +24,12 @@
                         <img class="img0" :src="img1_src"/>
                     </template>
                 </el-table-column>
-                <el-table-column prop="left" label="人脸左15" width="220">
+                <el-table-column prop="left" label="人脸左45" width="220">
                     <template #default>
                         <img class="img0" :src="img2_src"/>
                     </template>
                 </el-table-column>
-                <el-table-column prop="right" label="人脸右15" width="220">
+                <el-table-column prop="right" label="人脸右45" width="220">
                     <template #default>
                         <img class="img0" :src="img3_src"/>
                     </template>
@@ -47,32 +47,15 @@
             <div class="videoImg">
                 <div>
                     <span class="span">人脸正面</span>
-                    <img class="img1 " :src="img1_src"/>
+                    <img class="img1" :src="img1_src"/>
                 </div>
                 <div>
-                    <span class="span">人脸左15度</span>
-                    <img class="img1 " :src="img2_src"/>
+                    <span class="span">人脸左45</span>
+                    <img class="img1" :src="img2_src"/>
                 </div>
                 <div>
-                    <span class="span">人脸右15度</span>
-                    <img class="img1 " :src="img3_src"/>
-                </div>
-            </div>
-        </div>
-        <!-- 4.数据库查询出的人脸对应的特征展示 -->
-        <div class="featureShow">
-            <div class="featureImg">
-                <div>
-                    <span class="span">特征提取</span>
-                    <img class="img1 " :src="img4_src"/>
-                </div>
-                <div>
-                    <span class="span">特征提取</span>
-                    <img class="img1 " :src="img5_src"/>
-                </div>
-                <div>
-                    <span class="span">特征提取</span>
-                    <img class="img1 " :src="img6_src"/>
+                    <span class="span">人脸右45</span>
+                    <img class="img1" :src="img3_src"/>
                 </div>
             </div>
         </div>
@@ -101,21 +84,21 @@ export default{
         // 定义表格数据
         const tableData = [
             {
-                date: '2023-03-30',
+                date: '2023-04-06',
                 front: '',
                 left: '',
                 right: '',
                 operate: '',
             },
             {
-                date: '2023-03-30',
+                date: '2023-04-06',
                 front: '',
                 left: '',
                 right: '',
                 operate: '',
             },
             {
-                date: '2023-03-30',
+                date: '2023-04-06',
                 front: '',
                 left: '',
                 right: '',
@@ -126,20 +109,15 @@ export default{
         const img1_src = ref(require('@/assets/img/moren.webp'))
         const img2_src = ref(require('@/assets/img/moren.webp'))
         const img3_src = ref(require('@/assets/img/moren.webp'))
-        const img4_src = ref(require('@/assets/img/moren.webp'))
-        const img5_src = ref(require('@/assets/img/moren.webp'))
-        const img6_src = ref(require('@/assets/img/moren.webp'))
-
+        
         return{
             value,
             options,
             tableData,
             img1_src,
             img2_src,
-            img3_src,
-            img4_src,
-            img5_src,
-            img6_src
+            img3_src
+            
         }
     }
 }
@@ -149,17 +127,17 @@ export default{
 .container{
     width: 100%;
     height: 100%;
-    position: fixed;
+    /* position: fixed; */
 }
 .searchBox{
     display: flex;
     width:90%;
     height: 5%;
     margin-top:1%;
-    margin-left:1%;
+    margin-left:4%;
     background-color: rgb(242, 238, 238);
     align-items: center;
-  justify-content: center;
+    justify-content: center;
 }
 
 .selectBox{
@@ -172,9 +150,9 @@ export default{
     display: flex;
     flex-direction: column;
     width:90%;
-    height: 30%;
+    height: 45%;
     margin-top:1%;
-    margin-left:1%;
+    margin-left:4%;
     border: 1px solid rgb(242, 238, 238);
     background-color: rgb(242, 238, 238);
 }
@@ -186,7 +164,7 @@ export default{
 }
 .caijiTable{
     width: 90%;
-    height:88%;
+    height:90%;
     margin-left:4%;
     margin-top:1%;
     margin-bottom: 1%;
@@ -199,16 +177,16 @@ export default{
     display: flex; 
     align-items: center
 }
-.faceShow,.featureShow{
+.faceShow{
     display: flex;
     width:90%;
-    height: 25%;
-    margin-left:1%;
+    height: 40%;
+    margin-left:4%;
     margin-top:1%;
     border: 1px solid rgb(242, 238, 238);
     background-color: rgb(242, 238, 238);
 }
-.videoImg,.featureImg{
+.videoImg{
     display: flex;
     width: 90%;
     height:100%;
@@ -217,13 +195,12 @@ export default{
     align-items: center;
     justify-content: space-around;
   }
-  .videoImg > div,.featureImg > div{
+  .videoImg > div{
     font-size:16px;
     margin:3px;
   }
   .span{
     margin-left:25%;
-
   }
   .img1{
     width: 80%;

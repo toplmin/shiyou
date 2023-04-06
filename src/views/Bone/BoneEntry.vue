@@ -36,7 +36,7 @@
         </div>
         <div class="bottom">
             <!-- 提示信息文本框 -->
-            <el-input type="textarea" :rows="10" placeholder="提示信息"/>
+            <el-input type="textarea" :rows="7" placeholder="提示信息"/>
         </div>
     </div>
 </template>
@@ -45,7 +45,7 @@
 .boneEn{
     width:100%;
     height:100%;
-  position: fixed;
+    /* position: fixed; */
 }
 .top{
     display:flex;
@@ -92,10 +92,7 @@
 .buttonLeft,
 .buttonRight{
     display: flex;
-    flex-wrap: wrap;
     margin-top:3%;
-    align-items: center;
-    justify-content: center;
 }
 .btn{
     width:32%;
@@ -103,7 +100,7 @@
 .bottom{
     width:86%;
     height: 20%;
-    margin-top:4%;
+    margin-top:5%;
     margin-left:5%;
 }
 </style>
