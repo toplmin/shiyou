@@ -2,7 +2,7 @@
     <div class="container">
       <!-- 最上方展示视频-->
       <div class="top">
-        <!-- 左侧播放器 -->
+        <!-- 左上方播放器 -->
         <div class="top-left">
           <span>摄像头</span>
           <div class="playerBorder">
@@ -13,7 +13,7 @@
         <div class="top-right">
           <div class="vbtn">
             <el-button class="btn" type="primary" @click="startCamera">打开摄像头</el-button>
-          <el-button class="btn" type="primary" @click="stopCamera">关闭摄像头</el-button>
+            <el-button class="btn" type="primary" @click="stopCamera">关闭摄像头</el-button>
           </div>
           <div class="people">
           <el-input class="ipt" v-model="id" placeholder="请输入人员id" />
@@ -31,32 +31,32 @@
               <span>人脸正面</span>
               <img class="img1 " :src="img1_src"/>
               <div class="fbtn">
-                <el-button type="primary" @click="takePhoto">拍照</el-button>
-                <el-button type="primary">重拍</el-button>
-                <el-button type="primary">导入图片</el-button>
+                <el-button type="primary" @click="takePhoto" class="btn1">拍照</el-button>
+                <el-button type="primary" class="btn1">重拍</el-button>
+                <el-button type="primary" class="btn1">导入图片</el-button>
               </div>
             </div>
             <div class="face">
               <span>人脸左45度</span>
               <img class="img1 " :src="img2_src"/>
               <div class="fbtn">
-                <el-button type="primary" @click="takePhoto">拍照</el-button>
-                <el-button type="primary">重拍</el-button>
-                <el-button type="primary">导入图片</el-button>
+                <el-button type="primary" @click="takePhoto" class="btn1">拍照</el-button>
+                <el-button type="primary" class="btn1">重拍</el-button>
+                <el-button type="primary" class="btn1">导入图片</el-button>
               </div>
             </div>
             <div class="face">
               <span>人脸右45度</span>
               <img class="img1 " :src="img3_src"/>
               <div class="fbtn">
-                <el-button type="primary" @click="takePhoto">拍照</el-button>
-                <el-button type="primary">重拍</el-button>
-                <el-button type="primary">导入图片</el-button>
+                <el-button type="primary" @click="takePhoto" class="btn1">拍照</el-button>
+                <el-button type="primary" class="btn1">重拍</el-button>
+                <el-button type="primary" class="btn1">导入图片</el-button>
               </div>
             </div>
         </div>
         <!-- 2.下面特征抽取展示 -->
-        <div class="featureShow">
+        <!-- <div class="featureShow">
             <div class="feature">
               <img class="img1 " :src="img4_src"/>
               <el-button class="fbtn1" type="primary">特征抽取</el-button>
@@ -69,7 +69,7 @@
               <img class="img1 " :src="img6_src"/>
               <el-button class="fbtn1" type="primary">特征抽取</el-button>
             </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </template>
@@ -154,62 +154,65 @@
   .container {
     width: 100%;
     height: 100%;
-    display: flex;
-    flex-direction: column;
-    /* position: fixed; */
   }
   .top{
     display: flex;
     width:100%;
-    margin-top:1%;
+    height: 40%;
+    /* margin-top:1%; */
   }
   .top-left{
-    display: flex;
-    flex-direction: column;
-    width:60%;
+
+    width:55%;
+    /* background-color: pink; */
+
   }
-  .top-right{
-    display: flex;
-    flex-direction: column;
-    width:40%;
-  }
+
   .top-left > span{
-    width:10%;
-    margin-left:40%;
+    display: inline-block;
+    margin:1% 40%;
   }
   .top-left > .playerBorder{
-    width: 50%;
-    height: 80%;
-    margin-left:20%;
+    width: 60%;
+    height: 90%;
+    margin-left:12%;
     border: 1px solid #1b1c1d;
     background-color: rgb(242, 238, 238);
   }
   .video-canvas {
     width: 100%;
     height: 100%;
+    /* position: fixed; */
+  }
+  
+  .top-right{
+    width:45%;
+    margin-top: 1%;
+    /* background-color: green; */
   }
   .top-right > .vbtn{
-    display: flex;
     width:100%;
     margin-top:3%;
+    /* background-color: grey; */
   }
   .btn{
-    width:20%;
+    width:25%;
     margin-right:8%;
     background-color: #36a3f7;
   }
   .people{
     width:100%;
-    display: flex;
-    flex-direction: column;
+    margin-top: 2%;
+    /* display: flex;
+    flex-direction: column; */
   }
   .ipt{
-    width: 50%;
+    width: 60%;
     margin-top:2%;
     border:1px solid #36a3f7;
   }
   .sava_btn{
-    width: 50%;
+    width: 60%;
     margin-top:2%;
     background-color: #36a3f7;
   }
@@ -217,32 +220,41 @@
     display: flex;
     flex-direction: column;
     width:100%;
+    height: 50%;
+    margin-top: 2%;
   }
   .faceShow{
     display: flex;
-    width:90%;
-    margin-left:5%;
+    width:95%;
+    height: 100%;
+    margin-left:3%;
     background-color: rgb(242, 238, 238);
     justify-content: space-evenly;
   }
   .face{
-    display: flex;
-    flex-direction: column;
+    /* display: flex;
+    flex-direction: column; */
+    width: 30%;
   }
   .face > span{
-    width:40%;
-    margin-left:28%;
+    /* width:40%; */
+    display: inline-block;
+    margin:2% 38%;
   }
   .face > .img1{
-    width: 80%;
-    height: 100%;
+    width: 100%;
+    height: 85%;
     border:1px solid #1b1c1d;
-    margin-top:5px;
   }
   .face > .fbtn{
     display: flex;
+    width: 100%;
+    margin-top: 1%;
+    /* background-color: pink; */
   }
-
+  .btn1{
+    width: 80%;
+  }
   .featureShow{
     display: flex;
     width:90%;

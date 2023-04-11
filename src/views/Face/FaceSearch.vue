@@ -14,8 +14,9 @@
             <el-button type="primary" class="btn1">查询</el-button>
             <el-button type="danger" class="btn2">删除</el-button>
         </div>
+
         <!-- 2.管理采集表 -->
-        <div class="searchResult">
+        <!-- <div class="searchResult">
             <span>管理采集表</span>
             <el-table :data="tableData" class="caijiTable"  fit="true" highlight-current-row="true">
                 <el-table-column fixed prop="date" label="采集时间" width="182" />
@@ -41,23 +42,24 @@
                     </template>
                 </el-table-column>
             </el-table>
-        </div>
+        </div> -->
         <!-- 3.数据库查询出的人脸展示 -->
         <div class="faceShow">
             <div class="videoImg">
-                <div>
+                <div class="box">
                     <span class="span">人脸正面</span>
                     <img class="img1" :src="img1_src"/>
                 </div>
-                <div>
+                <div class="box">
                     <span class="span">人脸左45</span>
-                    <img class="img1" :src="img2_src"/>
+                    <img class="img2" :src="img2_src"/>
                 </div>
-                <div>
+                <div class="box">
                     <span class="span">人脸右45</span>
-                    <img class="img1" :src="img3_src"/>
+                    <img class="img3" :src="img3_src"/>
                 </div>
             </div>
+
         </div>
     </div>
 </template>
@@ -132,10 +134,10 @@ export default{
 .searchBox{
     display: flex;
     width:90%;
-    height: 5%;
-    margin-top:1%;
+    height: 6%;
+    /* margin-top:1%; */
     margin-left:4%;
-    background-color: rgb(242, 238, 238);
+    /* background-color: rgb(242, 238, 238); */
     align-items: center;
     justify-content: center;
 }
@@ -146,7 +148,7 @@ export default{
 .btn1{
     margin-left:1%;
 }
-.searchResult{
+/* .searchResult{
     display: flex;
     flex-direction: column;
     width:90%;
@@ -176,36 +178,46 @@ export default{
     height:15%;
     display: flex; 
     align-items: center
-}
+} */
 .faceShow{
-    display: flex;
     width:90%;
-    height: 40%;
+    height: 50%;
     margin-left:4%;
-    margin-top:1%;
+    margin-top:2%;
     border: 1px solid rgb(242, 238, 238);
     background-color: rgb(242, 238, 238);
 }
 .videoImg{
     display: flex;
-    width: 90%;
-    height:100%;
-    border:2px solid rgb(242, 238, 238);
-    margin-left:4%;
-    align-items: center;
-    justify-content: space-around;
-  }
-  .videoImg > div{
-    font-size:16px;
-    margin:3px;
-  }
+    width: 100%;
+    height: 100%;
+}
+.box{
+    width: 33%;
+    height: 90%;
+}
+
   .span{
-    margin-left:25%;
+    width: 20%;
+    display: inline-block;
+    margin: 2% 50%;
   }
   .img1{
-    width: 80%;
+    width: 90%;
     height: 80%;
     border:1px solid #1b1c1d;
-    margin-top:3px;
+    margin-left: 5%;
+  }
+  .img2{
+    width: 90%;
+    height: 80%;
+    border:1px solid #1b1c1d;
+    margin-left: 10%;
+  }
+  .img3{
+    width: 90%;
+    height: 80%;
+    border:1px solid #1b1c1d;
+    margin-left: 10%;
   }
 </style>

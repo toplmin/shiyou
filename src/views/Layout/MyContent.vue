@@ -40,8 +40,8 @@ export default{
 
 <style lang="less" scoped>
 .all{
-  display: flex;
-  flex-direction: column;
+  // display: flex;
+  // flex-direction: column;
   height: 100%;
 }
 .header{
