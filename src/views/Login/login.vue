@@ -18,31 +18,29 @@
 
 <script setup >
 import { ref } from 'vue'
-import {User,Key } from '@element-plus/icons-vue'
+import {User,Key, Message } from '@element-plus/icons-vue'
 import router from "@/router";
 import axios from 'axios'
 const username = ref('')
 const password = ref('')
-const baseURL = ref('http://127.0.0.1:8000');
+// const baseURL = ref('http://127.0.0.1:8000');
 const clickLogin = async()=>{
   try {
-    const response = await axios.post(baseURL+'/api/users/login',{
+    const response = await axios.post('/api/users/login',{
       username:username.value,
       password:password.value
     });
-    console.log(response.data)
-    if(response.code === 200){
-       await router.push('/home')
-    }else if(response.code === 500){
-      console.log("code = 500")
+    console.log('4.9',response.data)
+    if (response.data.code === 200) {
+      await router.push('/home')
+       
+    }else if(response.data.code === 500){
+      ElMessage.error('用户名和密码不匹配~')
+      // alert('用户名和密码不匹配~');
     }
   }catch (error){
     console.error(error)
   }
-  await router.push('/home')
-}
-const reset = async()=>{
-  this.$refs.loginForm.resetFields()
 }
 
 </script>
