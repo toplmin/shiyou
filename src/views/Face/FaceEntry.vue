@@ -31,27 +31,27 @@
               <span>人脸正面</span>
               <img class="img1 " :src="img1_src"/>
               <div class="fbtn">
-                <el-button type="primary" @click="takePhoto" class="btn1">拍照</el-button>
-                <el-button type="primary" class="btn1">重拍</el-button>
-                <el-button type="primary" class="btn1">导入图片</el-button>
+                <el-button type="primary" @click="takePhoto1" class="btn1">拍照</el-button>
+                <el-button type="primary" @click="retake1" class="btn1">重拍</el-button>
+                <el-button type="primary" @click="importPhote1" class="btn1">导入图片</el-button>
               </div>
             </div>
             <div class="face">
               <span>人脸左45度</span>
               <img class="img1 " :src="img2_src"/>
               <div class="fbtn">
-                <el-button type="primary" @click="takePhoto" class="btn1">拍照</el-button>
-                <el-button type="primary" class="btn1">重拍</el-button>
-                <el-button type="primary" class="btn1">导入图片</el-button>
+                <el-button type="primary" @click="takePhoto2" class="btn1">拍照</el-button>
+                <el-button type="primary" @click="retake2" class="btn1">重拍</el-button>
+                <el-button type="primary" @click="importPhote2" class="btn1">导入图片</el-button>
               </div>
             </div>
             <div class="face">
               <span>人脸右45度</span>
               <img class="img1 " :src="img3_src"/>
               <div class="fbtn">
-                <el-button type="primary" @click="takePhoto" class="btn1">拍照</el-button>
-                <el-button type="primary" class="btn1">重拍</el-button>
-                <el-button type="primary" class="btn1">导入图片</el-button>
+                <el-button type="primary" @click="takePhoto3" class="btn1">拍照</el-button>
+                <el-button type="primary" @click="retake3" class="btn1">重拍</el-button>
+                <el-button type="primary" @click="importPhote3" class="btn1">导入图片</el-button>
               </div>
             </div>
         </div>
@@ -77,23 +77,22 @@
   <script setup >
   import {ref} from 'vue'
   import {Discount} from "@element-plus/icons-vue";
+import axios from 'axios';
   //========================================打开、关闭、拍照功能=======================================================
   
   //定义图片实例
   let img1_src = ref(require('@/assets/img/moren.webp'));
   let img2_src = ref(require('@/assets/img/moren.webp'))
   let img3_src = ref(require('@/assets/img/moren.webp'))
-  let img4_src = ref(require('@/assets/img/moren.webp'))
-  let img5_src = ref(require('@/assets/img/moren.webp'))
-  let img6_src = ref(require('@/assets/img/moren.webp'))
+
   //定义拍照点击次数
-  let clickCount = ref("0")
+  // let clickCount = ref("0")
   //拉流 定义播放器player  画布videoCanvas
   const videoCanvas = ref(null);
   const url = 'ws://127.0.0.1:3000';
   let player = ref(null);
   //showCanvas 通过v-if来控制canves的显示和隐藏
-  const showCanvas = ref(true);
+  const showCanvas = ref(false);
   //打开摄像头
   function startCamera() {
     showCanvas.value = true;
@@ -106,48 +105,150 @@
   //关闭摄像头
   function stopCamera() {
     showCanvas.value = false
+    img1_src = ref(require('@/assets/img/moren.webp'));
+    img2_src = ref(require('@/assets/img/moren.webp'));
+    img3_src = ref(require('@/assets/img/moren.webp'));
+
   }
   //拍照
-  function takePhoto() {
-    if (!player) {
-      return;
+  function takePhoto1() {
+    console.log(showCanvas.value)
+    if (showCanvas.value == false) {
+      ElMessage.error('请先打开摄像头')
     }
-    var data = document.getElementById("play_canvas").toDataURL();
-    if(clickCount.value == 0){
-      img1_src.value = data//因为ref定义的变量是实例  好像是得通过.value修改。。。
+    else{
+      var data = document.getElementById("play_canvas").toDataURL();
+      img1_src.value = data//因为ref定义的变量是实例  好像是得通过.value修改。。。   
     }
-    else if(clickCount.value == 1){
-      img2_src.value = data//因为ref定义的变量是实例  好像是得通过.value修改。。。
-    }
-    else if(clickCount.value == 2){
-      img3_src.value = data//因为ref定义的变量是实例  好像是得通过.value修改。。。
-    }
-    else if (clickCount.value == 3){
-      img4_src.value = data//因为ref定义的变量是实例  好像是得通过.value修改。。。
-    }
-    else if (clickCount.value == 4){
-      img5_src.value = data//因为ref定义的变量是实例  好像是得通过.value修改。。。
-    }
-    else if (clickCount.value == 5){
-      img6_src.value = data//因为ref定义的变量是实例  好像是得通过.value修改。。。
-    }
-    clickCount.value = clickCount.value + 1;
-    clickCount.value = clickCount.value % 6;
   }
+  function takePhoto2() {
+    if (showCanvas.value == false) {
+      ElMessage.error('请先打开摄像头')
+    }
+    else{
+      var data = document.getElementById("play_canvas").toDataURL();
+      img2_src.value = DataView
+    }
+
+  }
+  function takePhoto3() {
+    if (showCanvas.value == false) {
+      ElMessage.error('请先打开摄像头')
+    }
+    else{
+      var data = document.getElementById("play_canvas").toDataURL();
+      img3_src.value = data
+    }
+
+  }
+
+  //重拍
+  function retake1(){
+    if (showCanvas.value == false) {
+      ElMessage.error('请先打开摄像头')
+    }
+    else{
+      var data = document.getElementById("play_canvas").toDataURL();
+      console.log(data)
+      img1_src.value = data
+    }
+  }
+  function retake2(){
+    if (showCanvas.value == false) {
+      ElMessage.error('请先打开摄像头')
+    }
+    else{
+      var data = document.getElementById("play_canvas").toDataURL();
+      img2_src.value = data
+    }
+  }
+  function retake3(){
+    if (showCanvas.value == false) {
+      ElMessage.error('请先打开摄像头')
+    }
+    else{
+      var data = document.getElementById("play_canvas").toDataURL();
+      img3_src.value = data
+    } 
+  }
+  //导入图片
+  function blobToBase64(url){
+    //fetch方法是一个异步的操作，它返回一个promise对象，这个对象包含了一个response对象，
+    //其中包含了响应的一些信息，如状态码、头部、内容等。
+    return  fetch(url)
+            .then( response => response.blob() )
+            .then( blob => new Promise( callback =>{
+                let reader = new FileReader() ;
+                reader.onload = function(){ callback(this.result) } ;
+                reader.readAsDataURL(blob) ;
+            }) ) ;
+      }
+  //图片上传
+  function handleFileUpload(event,num){
+    let file = event.target.files[0];
+    let fileUrl = URL.createObjectURL(file);
+    // 想要从fetch方法中返回响应的内容，不能直接返回response或response.json()等，
+    // 因为它们都是promise对象，而不是真正的数据。
+    //then()或async/await等方式来处理promise对象，等待它们被解析后再返回数据
+    blobToBase64(fileUrl).then(dataUrl=>{
+      if(num == 1){
+        img1_src.value = dataUrl;
+      }
+      if(num == 2){
+        img2_src.value = dataUrl;
+      }
+      if(num == 3){
+        img3_src.value = dataUrl;
+      }
+    })
+  };
+  function importPhote1(){
+    let input = document.createElement('input');
+    input.type = 'file';
+    input.onchange = (event) => handleFileUpload(event,1);
+    input.click();
+  }
+  function importPhote2(){
+    let input = document.createElement('input');
+    input.type = 'file';
+    input.onchange = (event) => handleFileUpload(event,2);
+    input.click();
+  }
+  function importPhote3(){
+    let input = document.createElement('input');
+    input.type = 'file';
+    input.onchange = (event) => handleFileUpload(event,3);
+    input.click();
+  }
+    
   //========================================输入人员id和姓名进行“保存”功能=======================================================
   const id = ref("")
   const name = ref("")
+  //base64编码的格式
+  const face1 = img1_src.value; 
+  const face2 = img2_src.value;
+  const face3 = img3_src.value;
+
   function save(){
-    alert("保存成功")
+    axios.get("api/users/add_person",{
+      params:{
+        name:name,
+        person_id:id,
+        face_path_1:face1,
+        face_path_2:face2,
+        face_path_3:face3
+      }
+    }).then((response)=>{
+      console.log(response)
+      if(response.data == 200){
+        ElMessage.success("保存成功！")
+      }
+      if(response.data == 500){
+        ElMessage.error("保存失败")
+      }
+    })
   }
-  //========================================将照片“提交”到算法模块功能=======================================================
-  
-  
-  //========================================人脸特征查询 功能=======================================================
-  
-  
-  //========================================从本地 导入图片 功能=======================================================
-  
+
   </script>
 
   <style scoped>
