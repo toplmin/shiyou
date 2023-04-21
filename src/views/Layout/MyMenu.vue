@@ -71,6 +71,13 @@
         <span>模型配置</span>
       </template>
     </el-menu-item>
+
+    <!-- <el-menu-item index="/moduleConfig">
+      <el-icon><Setting /></el-icon>
+      <template #title>
+        <span>模型配置</span>
+      </template>
+    </el-menu-item> -->
   </el-menu>
 </template>
 
