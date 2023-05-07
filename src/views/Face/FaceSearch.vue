@@ -3,15 +3,8 @@
         <!-- 1.人员姓名查询框 -->
         <div class="searchBox">
             <span>人员姓名：</span>
-            <el-select v-model="value" class="selectBox" placeholder="请输入人员姓名">
-                <el-option
-                    v-for="item in options"
-                    :key="item.value"
-                    :label="item.label"
-                    :value="item.value"
-                />
-            </el-select>
-            <el-button type="primary" class="btn1">查询</el-button>
+            <el-input v-model="input" class="selectBox" placeholder="请输入人员姓名"></el-input>
+            <el-button type="primary" class="btn1" @click="query">查询</el-button>
             <el-button type="danger" class="btn2">删除</el-button>
         </div>
 
@@ -64,65 +57,41 @@
     </div>
 </template>
 
-<script>
+<script setup>
 import { ref } from 'vue'
-export default{
-    setup(){
-        const value = ref('')
-        const options = [
-            {
-                value: 'Option1',
-                label: 'Option1',
-            },
-            {
-                value: 'Option2',
-                label: 'Option2',
-            },
-            {
-                value: 'Option3',
-                label: 'Option3',
-            },
-        ]
-        // 定义表格数据
-        const tableData = [
-            {
-                date: '2023-04-06',
-                front: '',
-                left: '',
-                right: '',
-                operate: '',
-            },
-            {
-                date: '2023-04-06',
-                front: '',
-                left: '',
-                right: '',
-                operate: '',
-            },
-            {
-                date: '2023-04-06',
-                front: '',
-                left: '',
-                right: '',
-                operate: '',
-            },
-        ]
+        const input = ref('')
         //定义图片实例
         const img1_src = ref(require('@/assets/img/moren.webp'))
         const img2_src = ref(require('@/assets/img/moren.webp'))
         const img3_src = ref(require('@/assets/img/moren.webp'))
-        
-        return{
-            value,
-            options,
-            tableData,
-            img1_src,
-            img2_src,
-            img3_src
-            
+
+        function query(){
+            alert("查询成功")
+            if(input.value.length > 0){
+                console.log('@@@',input.value)
+                axios.get('/api/users/get_person_feature',{
+                    params:{
+                        person_name:input.value
+                    }
+                }).then((response)=>{
+                    console.log("2023.3.7 resopnse:",response)
+                    if (response.data.code == 200) {
+                        ElMessage.success("查询成功！")
+                    }
+                    if(response.data.length <= 0){
+                        ElMessage.error("未查询到该名字的特征信息！");
+                    }else{
+                        // const pic1 = response.data[0];
+                        // const pic2 = response.data[1];
+                        // const pic3 = response.data[2];
+                        img1_src = response.data[0];
+                        img2_src = response.data[1];
+                        img3_src = response.data[2];
+                    }
+                })
+            }
         }
-    }
-}
+
 </script>
 
 <style scoped>
