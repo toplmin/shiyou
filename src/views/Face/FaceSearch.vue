@@ -5,7 +5,7 @@
             <span>人员姓名：</span>
             <el-input v-model="input" class="selectBox" placeholder="请输入人员姓名"></el-input>
             <el-button type="primary" class="btn1" @click="query">查询</el-button>
-            <el-button type="danger" class="btn2">删除</el-button>
+            <!-- <el-button type="danger" class="btn2">删除</el-button> -->
         </div>
 
         <!-- 2.管理采集表 -->
@@ -58,56 +58,51 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
-        const input = ref('')
-        //定义图片实例
-        let img1_src = ref(require('@/assets/img/moren.webp'))
-        let img2_src = ref(require('@/assets/img/moren.webp'))
-        let img3_src = ref(require('@/assets/img/moren.webp'))
-        function blobToBase64(url){
-            //fetch方法是一个异步的操作，它返回一个promise对象，这个对象包含了一个response对象，
-            //其中包含了响应的一些信息，如状态码、头部、内容等。
-            return  fetch(url)
-                    .then( response => response.blob() )
-                    .then( blob => new Promise( callback =>{
-                        let reader = new FileReader() ;
-                        reader.onload = function(){ callback(this.result) } ;
-                        reader.readAsDataURL(blob) ;
-                    }) ) ;
-        }
-        function query(){
-            alert("查询成功")
-            let url1 = require('@/assets/img/a.webp')
-      
-            blobToBase64(url1).then(dataUrl=>{
-                img1_src.value = dataUrl;
-                // console.log("2023.5.7",img1_src.value)
+    import { ref } from 'vue'
+    import axios from 'axios';
+    const input = ref('')
+    //定义图片实例
+    let img1_src = ref(require('@/assets/img/moren.webp'))
+    let img2_src = ref(require('@/assets/img/moren.webp'))
+    let img3_src = ref(require('@/assets/img/moren.webp'))
+    function blobToBase64(url){
+        //fetch方法是一个异步的操作，它返回一个promise对象，这个对象包含了一个response对象，
+        //其中包含了响应的一些信息，如状态码、头部、内容等。
+        return  fetch(url)
+                .then( response => response.blob() )
+                .then( blob => new Promise( callback =>{
+                    let reader = new FileReader() ;
+                    reader.onload = function(){ callback(this.result) } ;
+                    reader.readAsDataURL(blob) ;
+                }) ) ;
+    }
+    function query(){
+        // alert("查询成功")
+        // let url1 = require('@/assets/img/a.webp')
+        if(input.value.length > 0){
+            console.log('@@@',input.value)
+            axios.get('/api/users/get_person_feature',{
+                params:{
+                    person_name:input.value
+                }
+            }).then((response)=>{
+                // console.log("2023.3.7 resopnse:",response)
+                if(response.data.data.length <= 0){
+                    ElMessage.error("未查询到该名字的特征信息！");
+                } else {
+                    blobToBase64(response.data.data[0][0]).then(dataUrl => {
+                        img1_src.value = dataUrl;
+                    })
+                    blobToBase64(response.data.data[0][1]).then(dataUrl => {
+                        img2_src.value = dataUrl;
+                    })
+                    blobToBase64(response.data.data[0][2]).then(dataUrl => {
+                        img3_src.value = dataUrl;
+                    })
+                }
             })
-
-            // if(input.value.length > 0){
-            //     console.log('@@@',input.value)
-            //     axios.get('/api/users/get_person_feature',{
-            //         params:{
-            //             person_name:input.value
-            //         }
-            //     }).then((response)=>{
-            //         console.log("2023.3.7 resopnse:",response)
-            //         if (response.data.code == 200) {
-            //             ElMessage.success("查询成功！")
-            //         }
-            //         if(response.data.length <= 0){
-            //             ElMessage.error("未查询到该名字的特征信息！");
-            //         }else{
-            //             // const pic1 = response.data[0];
-            //             // const pic2 = response.data[1];
-            //             // const pic3 = response.data[2];
-            //             img1_src = response.data[0];
-            //             img2_src = response.data[1];
-            //             img3_src = response.data[2];
-            //         }
-            //     })
-            // }
         }
+    }
 
 </script>
 
