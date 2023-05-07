@@ -205,6 +205,7 @@ function handleFileUpload(event,num){
   blobToBase64(fileUrl).then(dataUrl=>{
     if(num == 1){
       img1_src.value = dataUrl;
+      // console.log("2023.5.7",img1_src.value)
     }
     if(num == 2){
       img2_src.value = dataUrl;
