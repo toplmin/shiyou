@@ -44,17 +44,17 @@ const dists = ref("")
 const inner_matrx = ref("")
 const rota_vector = ref("")
 function save(){
-    axios.post('/api/camera/add camera',{
-         ip : ip,
-         camera_id : camera_id,
-         rota_matrx : rota_matrx,
-         trans_ector : trans_ector,
-         dists : dists,
-         inner_matrx : inner_matrx,
-         rota_vector : rota_vector
+    axios.post('/api/camera/add_camera',{
+         ip : ip.value,
+         camera_id : parseInt(camera_id.value),
+         rota_matrx : rota_matrx.value,
+         trans_ector : trans_ector.value,
+         dists : dists.value,
+         inner_matrx : inner_matrx.value,
+         rota_vector : rota_vector.value
     }).then(resopnse=>{
         console.log("2023.5.8 resopnse:",resopnse);
-        if(resopnse.data.data == 200){
+        if(resopnse.data.code == 200){
             ElMessage.success("保存成功！")
         }
     })
