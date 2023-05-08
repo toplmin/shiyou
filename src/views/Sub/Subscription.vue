@@ -73,12 +73,16 @@
                 <el-input class="input1" v-model="ip" placeholder="请输入IP"></el-input>
               </div>
               <div>
-                <span>端口:</span>
-                <el-input class="input2" v-model="port" placeholder="请输入端口号"></el-input>
+                <span>view_id:</span>
+                <el-input class="input2" v-model="view_id" placeholder="请输入场景id"></el-input>
+              </div>
+              <div>
+                <span>camera_id:</span>
+                <el-input class="input3" v-model="camera_id" placeholder="请输入相机编号"></el-input>
               </div>
             </div>
             <div class="pushServer_bottom">
-              <el-button class="pushServer_btn" type="primary">添加</el-button>
+              <el-button class="pushServer_btn" type="primary" @click="subcripe">订阅</el-button>
               <el-button class="pushServer_btn" >取消</el-button>
             </div>
           </div>
@@ -109,6 +113,8 @@
 <!--  <el-button >gg</el-button>-->
 </template>
 <script setup>
+import axios from 'axios';
+import { ElMessage } from 'element-plus';
 import { ref} from 'vue'
 const value = ref("")
 const options = [
@@ -121,6 +127,24 @@ const options = [
     label: 'Option2',
   }
   ]
+
+  const ip = ref("");
+  const view_id = ref("");
+  const camera_id = ref("")
+
+  function subcripe(){
+    axios.post('/api/users/subscribe',{
+      view_id:view_id,
+      ip:ip,
+      carmera_id:camera_id
+    }).then(resopnse=>{
+      console.log("2023.5.8 resopnse 订阅：",resopnse);
+      if(resopnse.data.data == 200){
+        ElMessage.success("订阅成功！")
+      }
+    })
+  }
+
 </script>
 
 <style scoped>
@@ -264,13 +288,19 @@ const options = [
   margin: 2% 5%;
 }
 .input1{
-  width: 90%;
+  width: 80%;
   margin-top: 1% ;
   margin-bottom: 2%;
-  margin-left: 3%;
+  margin-left: 10%;
 }
 .input2{
-  width: 90%;
+  width: 80%;
+  margin-top: 1% ;
+  margin-bottom: 2%;
+  margin-left: 4%;
+}
+.input3{
+  width: 80%;
   margin-top: 1% ;
   margin-bottom: 2%;
   margin-left: 1%;

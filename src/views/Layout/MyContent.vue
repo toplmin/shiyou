@@ -9,7 +9,7 @@
       </div>
       <!-- 显示时间和退出系统 -->
       <div class="right">
-        <div class="time">2023-04-06</div>
+        <div class="time">xxx</div>
       </div>
     </div>
     <!-- 2.内容界面 -->
@@ -28,7 +28,6 @@ export default{
     const change = ()=>{
       emit('change')
     }
-
     return {
       change,
     }

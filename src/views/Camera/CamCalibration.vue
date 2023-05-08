@@ -6,80 +6,167 @@
       <div class="view_left">
         <div class="module">
           <div class="block">
-            <span>相机选择：</span>
-            <el-select v-model="value1" class="selectCam" placeholder="请选择相机编号">
-              <el-option
-                  v-for="item in options1"
-                  :key="item.value1"
-                  :label="item.label1"
-                  :value="item.value1"
-              />
-            </el-select>
+            <div>
+              <span>区域选择：</span>
+              <el-select v-model="value11" class="selectArea" placeholder="请选择区域">
+                <el-option
+                    v-for="item1 in options11"
+                    :key="item1.value11"
+                    :label="item1.label11"
+                    :value="item1.value11"
+                />
+              </el-select>
+            </div>
+
+            <div>
+              <span>相机选择：</span>
+              <el-select v-model="value1" class="selectCam" placeholder="请选择相机编号">
+                <el-option
+                    v-for="item in options1"
+                    :key="item.value1"
+                    :label="item.label1"
+                    :value="item.value1"
+                />
+              </el-select>
+            </div>
+
             <div class="img"></div>
           </div>
   
           <div class="block">
-            <span>相机选择：</span>
-            <el-select v-model="value2" class="selectCam" placeholder="请选择">
-              <el-option
-                  v-for="item in options2"
-                  :key="item.value2"
-                  :label="item.label2"
-                  :value="item.value2"
-              />
-            </el-select>
+            <div>
+              <span>区域选择：</span>
+              <el-select v-model="value11" class="selectArea" placeholder="请选择区域">
+                <el-option
+                    v-for="item1 in options11"
+                    :key="item1.value11"
+                    :label="item1.label11"
+                    :value="item1.value11"
+                />
+              </el-select>
+            </div>
+            
+            <div>
+              <span>相机选择：</span>
+              <el-select v-model="value1" class="selectCam" placeholder="请选择相机编号">
+                <el-option
+                    v-for="item in options1"
+                    :key="item.value1"
+                    :label="item.label1"
+                    :value="item.value1"
+                />
+              </el-select>
+            </div>
             <div class="img"></div>
           </div>
   
           <div class="block">
-            <span>相机选择：</span>
-            <el-select v-model="value3" class="selectCam" placeholder="请选择">
-              <el-option
-                  v-for="item in options3"
-                  :key="item.value3"
-                  :label="item.label3"
-                  :value="item.value3"
-              />
-            </el-select>
+            <div>
+              <span>区域选择：</span>
+              <el-select v-model="value11" class="selectArea" placeholder="请选择区域">
+                <el-option
+                    v-for="item1 in options11"
+                    :key="item1.value11"
+                    :label="item1.label11"
+                    :value="item1.value11"
+                />
+              </el-select>
+            </div>
+
+            <div>
+              <span>相机选择：</span>
+              <el-select v-model="value3" class="selectCam" placeholder="请选择">
+                <el-option
+                    v-for="item in options3"
+                    :key="item.value3"
+                    :label="item.label3"
+                    :value="item.value3"
+                />
+              </el-select>
+            </div>
+
             <div class="img"></div>
           </div>
   
           <div class="block">
-            <span>相机选择：</span>
-            <el-select v-model="value4" class="selectCam" placeholder="请选择">
-              <el-option
-                  v-for="item in options4"
-                  :key="item.value4"
-                  :label="item.label4"
-                  :value="item.value4"
-              />
-            </el-select>
+            <div>
+              <span>区域选择：</span>
+              <el-select v-model="value11" class="selectArea" placeholder="请选择区域">
+                <el-option
+                    v-for="item1 in options11"
+                    :key="item1.value11"
+                    :label="item1.label11"
+                    :value="item1.value11"
+                />
+              </el-select>
+            </div>
+
+
+            <div>
+              <span>相机选择：</span>
+              <el-select v-model="value3" class="selectCam" placeholder="请选择">
+                <el-option
+                    v-for="item in options3"
+                    :key="item.value3"
+                    :label="item.label3"
+                    :value="item.value3"
+                />
+              </el-select>
+            </div>
             <div class="img"></div>
           </div>
   
           <div class="block">
-            <span>相机选择：</span>
-            <el-select v-model="value5" class="selectCam" placeholder="请选择">
-              <el-option
-                  v-for="item in options5"
-                  :key="item.value5"
-                  :label="item.label5"
-                  :value="item.value5"
-              />
-            </el-select>
+            <div>
+              <span>区域选择：</span>
+              <el-select v-model="value11" class="selectArea" placeholder="请选择区域">
+                <el-option
+                    v-for="item1 in options11"
+                    :key="item1.value11"
+                    :label="item1.label11"
+                    :value="item1.value11"
+                />
+              </el-select>
+            </div>
+
+            <div>
+                <span>相机选择：</span>
+                <el-select v-model="value3" class="selectCam" placeholder="请选择">
+                  <el-option
+                      v-for="item in options3"
+                      :key="item.value3"
+                      :label="item.label3"
+                      :value="item.value3"
+                  />
+                </el-select>
+            </div>
             <div class="img"></div>
           </div>
   
           <div class="block">
-            <span>相机选择：</span>
-            <el-select v-model="value6" class="selectCam" placeholder="请选择">
-              <el-option
-                  v-for="item in options6"
-                  :key="item.value6"
-                  :label="item.label6"
-                  :value="item.value6"
-              />
-            </el-select>
+            <div>
+              <span>区域选择：</span>
+              <el-select v-model="value11" class="selectArea" placeholder="请选择区域">
+                <el-option
+                    v-for="item1 in options11"
+                    :key="item1.value11"
+                    :label="item1.label11"
+                    :value="item1.value11"
+                />
+              </el-select>
+            </div>
+
+            <div>
+              <span>相机选择：</span>
+              <el-select v-model="value3" class="selectCam" placeholder="请选择">
+                <el-option
+                    v-for="item in options3"
+                    :key="item.value3"
+                    :label="item.label3"
+                    :value="item.value3"
+                />
+              </el-select>
+            </div>
             <div class="img"></div>
           </div>
   
@@ -224,16 +311,25 @@
     width: 100%;
     height: 90%;
     /*background-color: pink;*/
-    margin: 5% 2%;
+    margin: 0% 2%;
   }
   .block{
     width: 40%;
     height: 30%;
     /*background-color: gold;*/
-    margin: 2% 5%;
+    margin: 3% 5%;
+  }
+  /* .select{
+    width: 100%;
+
+  } */
+  .selectArea{
+    width: 75%;
+    margin-bottom: 1%;
   }
   .selectCam{
-    /*width: 50%;*/
+    width: 75%;
+    margin-top: 1%;
   }
   .img{
     width: 90%;
