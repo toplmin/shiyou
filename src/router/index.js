@@ -18,6 +18,8 @@ import gaitEntry from '@/views/Gait/GaitEntry.vue'
 import personTrack from '@/views/Track/PersonTrack.vue'
 // 视频源配置
 import videoSource from '@/views/Video/VideoSource.vue'
+//相机配置
+import camConfig from '@/views/CamConfig/CameraConfig.vue'
 // 相机标定
 import camCalibration from '@/views/Camera/CamCalibration.vue'
 // 订阅配置
@@ -69,6 +71,11 @@ const routes = [
         path:'/videoSource',
         name:'视频源配置',
         component: videoSource,
+      },
+      {
+        path:'/camConfig',
+        name:"相机配置",
+        component:camConfig,
       },
       {
         path:'/camCalibration',

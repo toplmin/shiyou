@@ -53,6 +53,12 @@
         <span>视频源配置</span>
       </template>
     </el-menu-item>
+    <el-menu-item index="/camConfig">
+      <el-icon><Camera /></el-icon>
+      <template #title>
+        <span>相机配置</span>
+      </template>
+    </el-menu-item>
     <el-menu-item index="/camCalibration">
       <el-icon><Camera /></el-icon>
       <template #title>
